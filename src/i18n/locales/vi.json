@@ -1,0 +1,201 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "services": "Dịch vụ",
+    "learning": "Learning",
+    "about": "Về chúng tôi",
+    "contact": "Liên hệ",
+    "contactNow": "Liên hệ ngay"
+  },
+  "hero": {
+    "title": "VizioCraft Design",
+    "tagline": "Empowering Digital Innovation",
+    "industry": "AI & Media Technology",
+    "description": "Delivering cutting-edge AI solutions for film creation, intelligent agents, and end-to-end automation—empowering no-code and lowcode workflows with state-of-the-art generative AI.",
+    "stats": {
+      "projectsCompleted": "dự án hoàn thành",
+      "clientsServed": "khách hàng phục vụ",
+      "yearsExperience": "năm kinh nghiệm",
+      "teamMembers": "thành viên"
+    },
+    "cta": {
+      "exploreServices": "Khám phá dịch vụ",
+      "aboutUs": "Về chúng tôi"
+    }
+  },
+  "services": {
+    "title": "Dịch vụ của chúng tôi",
+    "subtitle": "Chúng tôi cung cấp giải pháp công nghệ toàn diện, từ AI automation đến sản xuất media chuyên nghiệp",
+    "aiSolutions": {
+      "title": "AI Solutions & Automation",
+      "description": "Tự động hóa quy trình kinh doanh với giải pháp AI thông minh, từ chatbots đến hệ thống quản lý tự động.",
+      "features": [
+        "Intelligent Agents",
+        "Business Process Automation",
+        "No-code/Low-code Solutions",
+        "AI-powered Analytics"
+      ]
+    },
+    "videoProduction": {
+      "title": "Video Production & Animation",
+      "description": "Sản xuất video chuyên nghiệp với công nghệ AI tiên tiến, từ concept đến thành phẩm hoàn chỉnh.",
+      "features": [
+        "AI-enhanced Video Creation",
+        "3D Animation",
+        "Motion Graphics",
+        "Post-production Services"
+      ]
+    },
+    "visualEffects": {
+      "title": "Visual Effects & Design",
+      "description": "Tạo ra những hiệu ứng thị giác ấn tượng và thiết kế sáng tạo cho mọi dự án media.",
+      "features": [
+        "Advanced VFX",
+        "UI/UX Design",
+        "Brand Identity",
+        "Digital Art Creation"
+      ]
+    },
+    "mediaProduction": {
+      "title": "Media Production",
+      "description": "Dịch vụ sản xuất media toàn diện từ ý tưởng đến triển khai, phù hợp mọi quy mô dự án.",
+      "features": [
+        "Content Strategy",
+        "Photography & Videography",
+        "Social Media Content",
+        "Marketing Campaigns"
+      ]
+    },
+    "saasSolutions": {
+      "title": "SaaS Solutions",
+      "description": "Phát triển và triển khai các giải pháp phần mềm như dịch vụ, tối ưu cho doanh nghiệp hiện đại.",
+      "features": [
+        "Custom Software Development",
+        "Cloud Solutions",
+        "API Integration",
+        "Scalable Architecture"
+      ]
+    },
+    "learnMore": "Tìm hiểu thêm",
+    "cta": {
+      "title": "Sẵn sàng biến ý tưởng thành hiện thực?",
+      "description": "Liên hệ với chúng tôi để thảo luận về dự án của bạn và khám phá cách chúng tôi có thể giúp bạn thành công.",
+      "button": "Bắt đầu dự án ngay"
+    }
+  },
+  "about": {
+    "title": "Về chúng tôi",
+    "subtitle": "Tìm hiểu thêm về công ty và những con người đằng sau những giải pháp công nghệ tiên tiến",
+    "companyName": "VizioCraft Design",
+    "companyDescription": "Delivering cutting-edge AI solutions for film creation, intelligent agents, and end-to-end automation—empowering no-code and lowcode workflows with state-of-the-art generative AI.",
+    "stats": {
+      "founded": "Năm thành lập",
+      "headquarters": "Trụ sở chính",
+      "members": "Thành viên",
+      "projects": "Dự án"
+    },
+    "mission": {
+      "title": "Sự mệnh",
+      "description": "Tạo ra những giải pháp AI tiên tiến và dịch vụ media chất lượng cao, giúp doanh nghiệp và cá nhân thực hiện ước mơ sáng tạo của họ thông qua công nghệ."
+    },
+    "vision": {
+      "title": "Tầm nhìn",
+      "description": "Trở thành đối tác công nghệ hàng đầu tại Việt Nam trong lĩnh vực AI và media automation, mang đến giá trị bền vững cho khách hàng và cộng đồng."
+    },
+    "founder": {
+      "title": "Gặp gỡ Founder",
+      "name": "Son Pham",
+      "position": "Founder & CEO",
+      "description": "Digital Creator và Visual Storytelling expert với hơn 5 năm kinh nghiệm trong lĩnh vực công nghệ và media. Dẫn dắt VizioCraft Design hướng tới việc mang đến những giải pháp AI tiên tiến nhất cho khách hàng.",
+      "background": "Với background từ kỹ sư xây dựng cầu đường đến business analysis, Son mang đến góc nhìn độc đáo về cách kết hợp công nghệ và sáng tạo."
+    }
+  },
+  "contact": {
+    "title": "Liên hệ với chúng tôi",
+    "subtitle": "Sẵn sàng biến ý tưởng của bạn thành hiện thực? Hãy liên hệ với chúng tôi ngay hôm nay!",
+    "info": {
+      "title": "Thông tin liên hệ",
+      "description": "Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn. Hãy liên hệ qua bất kỳ kênh nào thuận tiện nhất cho bạn.",
+      "phone": "Số điện thoại",
+      "address": "Địa chỉ",
+      "website": "Website",
+      "hours": "Giờ làm việc",
+      "schedule": {
+        "weekdays": "Thứ 2 - Thứ 6: 9:00 - 18:00",
+        "saturday": "Thứ 7: 9:00 - 12:00",
+        "sunday": "Chủ nhật: Nghỉ"
+      }
+    },
+    "form": {
+      "title": "Gửi tin nhắn cho chúng tôi",
+      "name": "Họ và tên",
+      "email": "Email",
+      "company": "Công ty",
+      "service": "Dịch vụ quan tâm",
+      "message": "Tin nhắn",
+      "required": "*",
+      "submit": "Gửi tin nhắn"
+    },
+    "whyChoose": {
+      "title": "Tại sao chọn chúng tôi?",
+      "quickResponse": {
+        "title": "Phản hồi nhanh chóng",
+        "description": "Chúng tôi phản hồi trong vòng 24 giờ và luôn sẵn sàng hỗ trợ bạn"
+      },
+      "professionalConsulting": {
+        "title": "Tư vấn chuyên nghiệp",
+        "description": "Đội ngũ chuyên gia giàu kinh nghiệm và tận tâm với khách hàng"
+      },
+      "support247": {
+        "title": "Hỗ trợ 24/7",
+        "description": "Dịch vụ hỗ trợ khách hàng kể cả cuối tuần và ngày lễ"
+      }
+    }
+  },
+  "learning": {
+    "title": "Learning Center",
+    "subtitle": "Mở rộng kỹ năng của bạn với các tutorial và khóa học toàn diện. Học hỏi từ các chuyên gia trong ngành và thành thạo những công nghệ mới nhất.",
+    "tabs": {
+      "tutorials": "Tutorials",
+      "courses": "Courses"
+    },
+    "categories": {
+      "all": "Tất cả danh mục",
+      "aiAutomation": "AI & Automation",
+      "videoProduction": "Video Production",
+      "animationVfx": "Animation & VFX",
+      "webDevelopment": "Web Development",
+      "marketing": "Marketing"
+    },
+    "difficulty": {
+      "beginner": "Cơ bản",
+      "intermediate": "Trung cấp",
+      "advanced": "Nâng cao"
+    },
+    "actions": {
+      "watchNow": "Xem ngay",
+      "enrollNow": "Đăng ký ngay"
+    },
+    "cta": {
+      "title": "Muốn tạo nội dung của riêng bạn?",
+      "description": "Tham gia chương trình tạo nội dung của chúng tôi và chia sẻ chuyên môn của bạn với cộng đồng.",
+      "instructor": "Trở thành giảng viên",
+      "submit": "Gửi tutorial"
+    }
+  },
+  "footer": {
+    "description": "Delivering cutting-edge AI solutions for film creation, intelligent agents, and end-to-end automation",
+    "rights": "Tất cả quyền được bảo lưu.",
+    "email": "contact@viziocraft.design"
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "backToHome": "Về trang chủ",
+    "readMore": "Đọc thêm",
+    "viewAll": "Xem tất cả",
+    "getStarted": "Bắt đầu",
+    "contactUs": "Liên hệ"
+  }
+}
+
