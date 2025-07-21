@@ -254,16 +254,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                 </div>
               </div>
 
-              {/* Response Time */}
-              <div className="bg-gradient-to-r from-cyan-500/20 to-blue-600/20 rounded-xl p-6 border border-cyan-400/30">
-                <h4 className="text-lg font-bold text-cyan-400 mb-2">
-                  Thời gian phản hồi
-                </h4>
-                <p className="text-gray-300">
-                  Chúng tôi cam kết phản hồi trong vòng <strong className="text-cyan-400">24 giờ</strong> 
-                  cho mọi yêu cầu tư vấn và báo giá.
-                </p>
-              </div>
+
             </div>
           </div>
         </div>

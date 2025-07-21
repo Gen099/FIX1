@@ -9,14 +9,14 @@
   },
   "hero": {
     "title": "VizioCraft Design",
-    "tagline": "Empowering Digital Innovation",
-    "industry": "AI & Media Technology",
-    "description": "Delivering cutting-edge AI solutions for film creation, intelligent agents, and end-to-end automation—empowering no-code and lowcode workflows with state-of-the-art generative AI.",
+    "tagline": "AI & Media Technology Solutions",
+    "industry": "Artificial Intelligence • Media Production • Automation",
+    "description": "We provide advanced AI solutions, professional media production and intelligent automation. A trusted technology partner helping businesses digitally transform and optimize business processes.",
     "stats": {
       "projectsCompleted": "Projects Completed",
-      "clientsServed": "Clients Served",
+      "clientsServed": "Satisfied Clients",
       "yearsExperience": "Years Experience",
-      "teamMembers": "Team Members"
+      "teamMembers": "24/7 Support"
     },
     "cta": {
       "exploreServices": "Explore Services",
@@ -25,136 +25,115 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "We provide comprehensive technology solutions, from AI automation to professional media production",
+    "subtitle": "We provide comprehensive solutions from AI, video production to web development and marketing",
     "aiSolutions": {
-      "title": "AI Solutions & Automation",
-      "description": "Automate business processes with intelligent AI solutions, from chatbots to automated management systems.",
+      "title": "AI Solutions",
+      "description": "Intelligent Agents, Business Process Automation, No-code/Low-code Solutions",
       "features": [
         "Intelligent Agents",
-        "Business Process Automation",
-        "No-code/Low-code Solutions",
-        "AI-powered Analytics"
+        "Process Automation",
+        "AI Analytics",
+        "No-code Solutions"
       ]
     },
     "videoProduction": {
-      "title": "Video Production & Animation",
-      "description": "Professional video production with advanced AI technology, from concept to finished product.",
+      "title": "Video Production",
+      "description": "AI-enhanced Video Creation, 3D Animation, Motion Graphics, Post-production Services",
       "features": [
-        "AI-enhanced Video Creation",
+        "AI Video Creation",
         "3D Animation",
         "Motion Graphics",
-        "Post-production Services"
+        "Post-production"
       ]
     },
-    "visualEffects": {
-      "title": "Visual Effects & Design",
-      "description": "Create impressive visual effects and creative designs for all media projects.",
+    "webDevelopment": {
+      "title": "Web Development",
+      "description": "Custom Web Applications, E-commerce Solutions, Progressive Web Apps",
       "features": [
-        "Advanced VFX",
-        "UI/UX Design",
-        "Brand Identity",
-        "Digital Art Creation"
+        "Custom Web Apps",
+        "E-commerce",
+        "Progressive Web Apps",
+        "API Development"
       ]
     },
-    "mediaProduction": {
-      "title": "Media Production",
-      "description": "Comprehensive media production services from concept to deployment, suitable for all project scales.",
+    "digitalMarketing": {
+      "title": "Digital Marketing",
+      "description": "Brand Strategy, Content Creation, Social Media Management, SEO Optimization",
       "features": [
-        "Content Strategy",
-        "Photography & Videography",
-        "Social Media Content",
-        "Marketing Campaigns"
-      ]
-    },
-    "saasSolutions": {
-      "title": "SaaS Solutions",
-      "description": "Develop and deploy software-as-a-service solutions, optimized for modern enterprises.",
-      "features": [
-        "Custom Software Development",
-        "Cloud Solutions",
-        "API Integration",
-        "Scalable Architecture"
+        "Brand Strategy",
+        "Content Creation",
+        "Social Media",
+        "SEO Optimization"
       ]
     },
     "learnMore": "Learn More",
     "cta": {
-      "title": "Ready to turn ideas into reality?",
-      "description": "Contact us to discuss your project and discover how we can help you succeed.",
-      "button": "Start Your Project Now"
+      "title": "Need consultation on suitable services for your project?",
+      "description": "Free consultation contact",
+      "button": "Free consultation contact"
     }
   },
   "about": {
-    "title": "About Us",
-    "subtitle": "Learn more about the company and the people behind cutting-edge technology solutions",
+    "title": "About VizioCraft Design",
+    "subtitle": "We are a team of technology-passionate experts, committed to bringing the most creative AI and media solutions",
     "companyName": "VizioCraft Design",
-    "companyDescription": "Delivering cutting-edge AI solutions for film creation, intelligent agents, and end-to-end automation—empowering no-code and lowcode workflows with state-of-the-art generative AI.",
+    "companyDescription": "VizioCraft Design was founded with the vision of becoming a trusted technology partner for businesses wanting to digitally transform and apply AI to business operations.",
+    "story": {
+      "title": "Our Story",
+      "description": "VizioCraft Design was founded with the vision of becoming a trusted technology partner for businesses wanting to digitally transform and apply AI to business operations. With a team of experienced experts in AI, media production and web development, we have helped hundreds of businesses optimize processes and increase operational efficiency."
+    },
     "stats": {
-      "founded": "Year Founded",
-      "headquarters": "Headquarters",
-      "members": "Members",
-      "projects": "Projects"
+      "founded": "100+",
+      "headquarters": "50+",
+      "members": "5+",
+      "projects": "24/7"
     },
     "mission": {
-      "title": "Mission",
-      "description": "Create advanced AI solutions and high-quality media services, helping businesses and individuals realize their creative dreams through technology."
+      "title": "Innovation",
+      "description": "We always pioneer in applying the latest technology to create breakthrough solutions."
     },
     "vision": {
-      "title": "Vision",
-      "description": "Become the leading technology partner in Vietnam in AI and media automation, bringing sustainable value to customers and the community."
+      "title": "High Quality",
+      "description": "Committed to bringing the highest quality products and services, meeting all customer requirements."
     },
-    "founder": {
-      "title": "Meet the Founder",
-      "name": "Son Pham",
-      "position": "Founder & CEO",
-      "description": "Digital Creator and Visual Storytelling expert with over 5 years of experience in technology and media. Leading VizioCraft Design towards bringing the most advanced AI solutions to customers.",
-      "background": "With a background from bridge construction engineer to business analysis, Son brings a unique perspective on how to combine technology and creativity."
+    "values": {
+      "partnership": "Sustainable Partnership",
+      "excellence": "Excellence"
     }
   },
   "contact": {
     "title": "Contact Us",
-    "subtitle": "Ready to turn your ideas into reality? Contact us today!",
+    "subtitle": "Ready to start your project? Contact us for free consultation",
     "info": {
-      "title": "Contact Information",
-      "description": "We are always ready to listen and support you. Contact us through any channel that is most convenient for you.",
-      "phone": "Phone Number",
-      "address": "Address",
+      "title": "Send us a message",
+      "description": "Contact Information",
+      "phone": "+848 68 68 99 12",
+      "address": "Hanoi, Cau Giay, Vietnam",
       "website": "Website",
       "hours": "Working Hours",
       "schedule": {
-        "weekdays": "Monday - Friday: 9:00 - 18:00",
-        "saturday": "Saturday: 9:00 - 12:00",
-        "sunday": "Sunday: Closed"
+        "weekdays": "Monday - Friday:",
+        "saturday": "Saturday:",
+        "sunday": "Sunday:",
+        "weekdaysTime": "8:00 - 18:00",
+        "saturdayTime": "9:00 - 17:00",
+        "sundayTime": "Closed"
       }
     },
     "form": {
       "title": "Send us a message",
       "name": "Full Name",
       "email": "Email",
-      "company": "Company",
+      "company": "Company / Organization",
       "service": "Service of Interest",
       "message": "Message",
       "required": "*",
       "submit": "Send Message"
-    },
-    "whyChoose": {
-      "title": "Why Choose Us?",
-      "quickResponse": {
-        "title": "Quick Response",
-        "description": "We respond within 24 hours and are always ready to support you"
-      },
-      "professionalConsulting": {
-        "title": "Professional Consulting",
-        "description": "Team of experienced experts dedicated to customers"
-      },
-      "support247": {
-        "title": "24/7 Support",
-        "description": "Customer support service including weekends and holidays"
-      }
     }
   },
   "learning": {
     "title": "Learning Center",
-    "subtitle": "Expand your skills with our comprehensive tutorials and courses. Learn from industry experts and master the latest technologies.",
+    "subtitle": "Expand your skills with comprehensive tutorials and courses",
     "tabs": {
       "tutorials": "Tutorials",
       "courses": "Courses"
@@ -175,16 +154,10 @@
     "actions": {
       "watchNow": "Watch Now",
       "enrollNow": "Enroll Now"
-    },
-    "cta": {
-      "title": "Want to Create Your Own Content?",
-      "description": "Join our content creator program and share your expertise with our community.",
-      "instructor": "Become an Instructor",
-      "submit": "Submit Tutorial"
     }
   },
   "footer": {
-    "description": "Delivering cutting-edge AI solutions for film creation, intelligent agents, and end-to-end automation",
+    "description": "© 2024 VizioCraft Design. Empowering Digital Innovation with AI & Media Technology.",
     "rights": "All rights reserved.",
     "email": "contact@viziocraft.design"
   },
@@ -196,6 +169,13 @@
     "viewAll": "View All",
     "getStarted": "Get Started",
     "contactUs": "Contact Us"
+  },
+  "assistant": {
+    "name": "Hoang Anh",
+    "role": "Virtual Assistant",
+    "welcome": "Hello! I'm Hoang Anh, VizioCraft Design's virtual assistant. I can help you learn about our services and answer questions. How can I help you?",
+    "placeholder": "Type your message...",
+    "suggestedQuestions": "Suggested questions:"
   }
 }
 

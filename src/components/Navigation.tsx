@@ -28,7 +28,6 @@ const Navigation: React.FC = () => {
     { id: 'services', label: t('nav.services'), path: '/#services' },
     { id: 'learning', label: t('nav.learning'), path: '/learning' },
     { id: 'about', label: t('nav.about'), path: '/#about' },
-    { id: 'contact', label: t('nav.contact'), path: '/#contact' },
   ];
 
   const handleNavClick = (item: typeof navigationItems[0]) => {
@@ -101,7 +100,16 @@ const Navigation: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
             <button
-              onClick={() => handleNavClick(navigationItems.find(item => item.id === 'contact')!)}
+              onClick={() => {
+                if (location.pathname !== '/') {
+                  navigate('/');
+                  setTimeout(() => {
+                    scrollToSection('contact');
+                  }, 100);
+                } else {
+                  scrollToSection('contact');
+                }
+              }}
               className="
                 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 sm:px-6 py-2 rounded-full
                 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300
@@ -149,7 +157,17 @@ const Navigation: React.FC = () => {
               
               {/* Contact CTA in Mobile Menu */}
               <button
-                onClick={() => handleNavClick(navigationItems.find(item => item.id === 'contact')!)}
+                onClick={() => {
+                  if (location.pathname !== '/') {
+                    navigate('/');
+                    setTimeout(() => {
+                      scrollToSection('contact');
+                    }, 100);
+                  } else {
+                    scrollToSection('contact');
+                  }
+                  setIsMobileMenuOpen(false);
+                }}
                 className="
                   block w-full text-center px-4 py-3 mt-4
                   bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg

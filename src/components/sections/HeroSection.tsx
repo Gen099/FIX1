@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { GradientText } from '../ui/GradientText';
 import { ArrowDown, Play, Zap, Users, Award } from 'lucide-react';
@@ -10,6 +11,7 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
+  const { t } = useTranslation();
   const { ref, isVisible } = useScrollAnimation();
   const { scrollToSection } = useSmoothScroll();
 
@@ -50,21 +52,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
         transition-all duration-1000 ease-out
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
       `}>
-        {/* Company Logo */}
-        <div className={`
-          mb-8 flex justify-center
-          transition-all duration-1000 delay-200
-          ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
-        `}>
-          <div className="relative">
-            <img 
-              src="/images/logo-transparent.png" 
-              alt="VizioCraft Design"
-              className="w-24 h-24 md:w-32 md:h-32 rounded-2xl shadow-2xl shadow-cyan-400/30 border-2 border-cyan-400/50"
-            />
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-cyan-400/20 to-purple-500/20 animate-pulse" />
-          </div>
-        </div>
+
 
         {/* Company Name */}
         <h1 className={`
@@ -79,21 +67,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
 
         {/* Tagline */}
         <h2 className={`
-          text-2xl md:text-3xl lg:text-4xl text-purple-400 mb-2 font-light
+          text-2xl md:text-3xl lg:text-4xl text-purple-400 mb-8 font-light
           transition-all duration-1000 delay-600
           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
         `}>
-          {company.tagline}
+          {t('hero.tagline')}
         </h2>
-
-        {/* Industry */}
-        <h3 className={`
-          text-lg md:text-xl text-green-400 mb-8
-          transition-all duration-1000 delay-800
-          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-        `}>
-          {company.industry}
-        </h3>
 
         {/* Description */}
         <p className={`
@@ -101,7 +80,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
           transition-all duration-1000 delay-1000
           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
         `}>
-          {company.description}
+          {t('hero.description')}
         </p>
 
         {/* Stats */}
@@ -110,16 +89,38 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
           transition-all duration-1000 delay-1200
           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
         `}>
-          {Object.entries(company.stats).slice(0, 4).map(([key, value], index) => (
-            <div key={key} className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-cyan-400 mb-2">
-                {value as string}
-              </div>
-              <div className="text-sm text-gray-400 capitalize">
-                {key.replace('_', ' ')}
-              </div>
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-bold text-cyan-400 mb-2">
+              100+
             </div>
-          ))}
+            <div className="text-sm text-gray-400">
+              {t('hero.stats.projectsCompleted')}
+            </div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-bold text-cyan-400 mb-2">
+              50+
+            </div>
+            <div className="text-sm text-gray-400">
+              {t('hero.stats.clientsServed')}
+            </div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-bold text-cyan-400 mb-2">
+              5+
+            </div>
+            <div className="text-sm text-gray-400">
+              {t('hero.stats.yearsExperience')}
+            </div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-bold text-cyan-400 mb-2">
+              24/7
+            </div>
+            <div className="text-sm text-gray-400">
+              {t('hero.stats.teamMembers')}
+            </div>
+          </div>
         </div>
 
         {/* CTA Buttons */}
@@ -139,7 +140,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
             "
           >
             <Zap className="mr-2" size={20} />
-            Khám phá dịch vụ
+            {t('hero.cta.exploreServices')}
           </button>
           
           <button
@@ -152,7 +153,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
             "
           >
             <Users className="mr-2" size={20} />
-            Về chúng tôi
+            {t('hero.cta.aboutUs')}
           </button>
         </div>
       </div>

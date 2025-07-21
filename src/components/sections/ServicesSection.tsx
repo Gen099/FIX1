@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { GradientText } from '../ui/GradientText';
 import { Brain, Video, Code, Megaphone, ArrowRight } from 'lucide-react';
@@ -8,6 +10,7 @@ interface ServicesSectionProps {
 }
 
 const ServicesSection: React.FC<ServicesSectionProps> = ({ data }) => {
+  const { t } = useTranslation();
   const { ref, isVisible } = useScrollAnimation();
 
   const services = [
@@ -36,7 +39,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ data }) => {
       gradient: 'from-green-500 to-teal-600'
     },
     {
-      id: 'marketing',
+      id: 'digital-marketing',
       icon: <Megaphone className="w-8 h-8" />,
       title: 'Digital Marketing',
       description: 'Brand Strategy, Content Creation, Social Media Management, SEO Optimization',
@@ -67,7 +70,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ data }) => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <div
               key={service.id}
@@ -112,10 +115,13 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ data }) => {
               </ul>
 
               {/* Learn More Button */}
-              <div className="flex items-center text-cyan-400 group-hover:text-cyan-300 transition-colors cursor-pointer">
-                <span className="text-sm font-medium">Tìm hiểu thêm</span>
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <Link
+                to={`/service/${service.id}`}
+                className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors group"
+              >
+                {t('services.learnMore')}
+                <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+              </Link>
 
               {/* Hover Gradient Overlay */}
               <div className={`
@@ -135,7 +141,14 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ data }) => {
           <p className="text-xl text-gray-300 mb-8">
             Bạn cần tư vấn dịch vụ phù hợp cho dự án của mình?
           </p>
-          <button className="
+          <button 
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="
             inline-flex items-center px-8 py-4 text-lg font-semibold
             text-white bg-gradient-to-r from-cyan-500 to-blue-600
             rounded-full shadow-2xl shadow-cyan-500/25
@@ -152,3 +165,4 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ data }) => {
 };
 
 export default ServicesSection;
+

@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
+import ServiceDetailPage from './pages/ServiceDetailPage';
 import LearningPage from './pages/LearningPage';
+import AdminPage from './pages/AdminPage';
 import ThreeBackground from './components/ThreeBackground';
 import P5Background from './components/P5Background';
 import AIAssistant from './components/AIAssistant';
@@ -29,7 +31,9 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/:serviceId" element={<ServicesPage />} />
+            <Route path="/service/:serviceId" element={<ServiceDetailPage />} />
             <Route path="/learning" element={<LearningPage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </main>
         
