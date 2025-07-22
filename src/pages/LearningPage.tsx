@@ -430,7 +430,8 @@ const LearningPage: React.FC = () => {
         )}
 
         {/* Admin Link */}
-        <div className="text-center mt-12">
+        
+        {/* <div className="text-center mt-12">
           <a 
             href="/admin" 
             className="inline-flex items-center px-6 py-3 bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white rounded-lg transition-colors"
