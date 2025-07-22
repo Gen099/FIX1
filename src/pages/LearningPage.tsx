@@ -442,6 +442,7 @@ const LearningPage: React.FC = () => {
         </div>
       </div>
     </div>
+    */}
   );
 };
 
