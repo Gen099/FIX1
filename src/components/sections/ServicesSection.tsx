@@ -116,8 +116,8 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ data }) => {
 
               {/* Learn More Button */}
               <Link
-                to={`/service/${service.id}`}
-                className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors group"
+                to={`/services/${service.id}`}
+                className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors group relative z-10"
               >
                 {t('services.learnMore')}
                 <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
@@ -126,7 +126,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ data }) => {
               {/* Hover Gradient Overlay */}
               <div className={`
                 absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-10
-                bg-gradient-to-r ${service.gradient} transition-opacity duration-500
+                bg-gradient-to-r ${service.gradient} transition-opacity duration-500 pointer-events-none
               `} />
             </div>
           ))}

@@ -32,6 +32,9 @@ const LearningPage: React.FC = () => {
     setCourses(contentManager.getCourses({ published: true }));
     setTutorials(contentManager.getTutorials({ published: true }));
     setArticles(contentManager.getArticles({ published: true }));
+    
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
   }, []);
 
   // Filter content based on search and filters
@@ -337,9 +340,9 @@ const LearningPage: React.FC = () => {
         <div className="flex justify-center mb-8">
           <div className="flex space-x-1 bg-gray-800 p-1 rounded-lg">
             {[
-              { id: 'courses', label: t('learning.tabs.courses') || 'Courses', icon: BookOpen },
-              { id: 'tutorials', label: t('learning.tabs.tutorials') || 'Tutorials', icon: Video },
-              { id: 'articles', label: t('learning.tabs.articles') || 'Articles', icon: FileText }
+              { id: 'courses', label: 'Courses', icon: BookOpen },
+              { id: 'tutorials', label: 'Tutorials', icon: Video },
+              { id: 'articles', label: 'Articles', icon: FileText }
             ].map(tab => {
               const Icon = tab.icon;
               return (
@@ -378,10 +381,10 @@ const LearningPage: React.FC = () => {
             onChange={(e) => setSelectedLevel(e.target.value)}
             className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-cyan-500"
           >
-            <option value="all">{t('learning.filters.allLevels') || 'All Levels'}</option>
-            <option value="beginner">{t('learning.filters.beginner') || 'Beginner'}</option>
-            <option value="intermediate">{t('learning.filters.intermediate') || 'Intermediate'}</option>
-            <option value="advanced">{t('learning.filters.advanced') || 'Advanced'}</option>
+            <option value="all">Tất cả cấp độ</option>
+            <option value="beginner">Cơ bản</option>
+            <option value="intermediate">Trung cấp</option>
+            <option value="advanced">Nâng cao</option>
           </select>
 
           {(activeTab === 'courses' || activeTab === 'articles') && (
@@ -390,11 +393,11 @@ const LearningPage: React.FC = () => {
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-cyan-500"
             >
-              <option value="all">{t('learning.filters.allCategories') || 'All Categories'}</option>
-              <option value="aiAutomation">{t('learning.categories.aiAutomation') || 'AI & Automation'}</option>
-              <option value="videoProduction">{t('learning.categories.videoProduction') || 'Video Production'}</option>
-              <option value="webDevelopment">{t('learning.categories.webDevelopment') || 'Web Development'}</option>
-              <option value="digitalMarketing">{t('learning.categories.digitalMarketing') || 'Digital Marketing'}</option>
+              <option value="all">Tất cả danh mục</option>
+              <option value="aiAutomation">AI & Automation</option>
+              <option value="videoProduction">Video Production</option>
+              <option value="webDevelopment">Web Development</option>
+              <option value="digitalMarketing">Digital Marketing</option>
             </select>
           )}
         </div>

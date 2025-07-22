@@ -20,6 +20,20 @@ body {
   background-color: #000;
   color: #fff;
   overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Fix for text clipping issues */
+h1, h2, h3, h4, h5, h6, p, span, div {
+  line-height: 1.6;
+  overflow: visible;
+}
+
+/* Ensure proper text rendering */
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
 }
 
 /* ========== LAYOUT STYLES ========== */
