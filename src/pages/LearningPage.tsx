@@ -154,7 +154,7 @@ const LearningPage: React.FC = () => {
         </div>
         
         <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-2 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all">
-          {t('learning.enrollNow') || 'Enroll Now'}
+          {t('Enroll Now') || 'Enroll Now'}
         </button>
       </div>
     </div>
@@ -251,7 +251,7 @@ const LearningPage: React.FC = () => {
               className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors text-center flex items-center justify-center"
             >
               <ExternalLink size={16} className="mr-2" />
-              {t('learning.viewDocument') || 'View Document'}
+              {t('View Document') || 'View Document'}
             </a>
           )}
           {tutorial.videoUrl && (
@@ -262,7 +262,7 @@ const LearningPage: React.FC = () => {
               className="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition-colors text-center flex items-center justify-center"
             >
               <Play size={16} className="mr-2" />
-              {t('learning.watchVideo') || 'Watch Video'}
+              {t('Watch Video') || 'Watch Video'}
             </a>
           )}
         </div>
