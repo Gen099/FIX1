@@ -46,8 +46,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
     {
       icon: <Mail className="w-6 h-6" />,
       label: 'Email',
-      value: 'contact@viziocraft.design',
-      link: 'mailto:contact@viziocraft.design'
+      value: 'viziocraft.design@gmail.com',
+      link: 'mailto:viziocraft.design@gmail.com'
     },
     {
       icon: <Phone className="w-6 h-6" />,
@@ -58,7 +58,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
     {
       icon: <MapPin className="w-6 h-6" />,
       label: 'Địa chỉ',
-      value: 'Hà Nội, Cầu Giấy, Việt Nam',
+      value: 'Hà Nội, Việt Nam',
       link: null
     }
   ];
