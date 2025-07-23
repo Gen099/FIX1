@@ -315,7 +315,7 @@ const LearningPage: React.FC = () => {
         </div>
         
         <button className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-2 rounded-lg hover:from-purple-600 hover:to-indigo-700 transition-all">
-          {t('learning.readArticle') || 'Read Article'}
+          {t('Read Article') || 'Read Article'}
         </button>
       </div>
     </div>
