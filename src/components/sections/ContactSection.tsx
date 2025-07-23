@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { GradientText } from '../ui/GradientText';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+
+const EMAILJS_SERVICE_ID = 'service_xuzjjms';
+const EMAILJS_TEMPLATE_ID = 'template_h9due57';
+const EMAILJS_PUBLIC_KEY = 'YvpO-fzCSUUxoG0r7';
 
 interface ContactSectionProps {
   data: any;
@@ -29,17 +34,34 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      message: formData.message
+    };
+
+    try {
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+      console.log('EmailJS Success:', result.text);
+
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', company: '', message: '' });
-      
-      // Reset success message after 5 seconds
+
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
-    }, 2000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setIsSubmitting(false);
+      alert('❌ Gửi tin nhắn thất bại. Vui lòng thử lại sau!');
+    }
   };
 
   const contactInfo = [
@@ -64,9 +86,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
   ];
 
   return (
-    <section 
+    <section
       ref={ref}
-      id="contact" 
+      id="contact"
       className="min-h-screen py-20 relative overflow-hidden bg-gradient-to-br from-gray-900 to-black"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,11 +116,13 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
               <h3 className="text-2xl font-bold text-white mb-6">
                 Gửi tin nhắn cho chúng tôi
               </h3>
-              
+
               {isSubmitted && (
                 <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-400 mr-3" />
-                  <span className="text-green-400">Tin nhắn đã được gửi thành công! Chúng tôi sẽ phản hồi sớm nhất.</span>
+                  <span className="text-green-400">
+                    Tin nhắn đã được gửi thành công! Chúng tôi sẽ phản hồi sớm nhất.
+                  </span>
                 </div>
               )}
 
@@ -135,7 +159,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="company" className="block text-gray-300 text-sm font-medium mb-2">
                     Công ty / Tổ chức
@@ -150,7 +174,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                     placeholder="Tên công ty hoặc tổ chức"
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-gray-300 text-sm font-medium mb-2">
                     Tin nhắn *
@@ -166,7 +190,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                     placeholder="Mô tả dự án hoặc yêu cầu của bạn..."
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -253,8 +277,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
                   </div>
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>
