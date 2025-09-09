@@ -1,154 +1,180 @@
 {
-  "// File: src/i18n/locales/vi.json - Thêm gallery section": "",
-  "gallery": {
-    "title": "Thư viện Sáng tạo",
-    "subtitle": "Khám phá bộ sưu tập các tác phẩm sáng tạo của chúng tôi, từ video được tạo bằng AI đến thiết kế hình ảnh tuyệt đẹp",
+  "nav": {
+    "home": "Trang chủ",
+    "services": "Dịch vụ",
+    "learning": "Học tập",
+    "about": "Về chúng tôi",
+    "contact": "Liên hệ",
+    "contactNow": "Liên hệ ngay"
+  },
+  "hero": {
+    "title": "VizioCraft Design",
+    "tagline": "Giải pháp Công nghệ AI & Media",
+    "industry": "Trí tuệ nhân tạo • Sản xuất Media • Tự động hóa",
+    "description": "Chúng tôi cung cấp giải pháp AI tiên tiến, sản xuất media chuyên nghiệp và automation thông minh. Đối tác công nghệ đáng tin cậy giúp doanh nghiệp chuyển đổi số và tối ưu hóa quy trình kinh doanh.",
+    "stats": {
+      "projectsCompleted": "Dự án hoàn thành",
+      "clientsServed": "Khách hàng hài lòng",
+      "yearsExperience": "Năm kinh nghiệm",
+      "teamMembers": "Hỗ trợ 24/7"
+    },
+    "cta": {
+      "exploreServices": "Khám phá dịch vụ",
+      "aboutUs": "Về chúng tôi"
+    }
+  },
+  "services": {
+    "title": "Dịch vụ của chúng tôi",
+    "subtitle": "Chúng tôi cung cấp giải pháp toàn diện từ AI, sản xuất video đến phát triển web và marketing",
+    "aiSolutions": {
+      "title": "Giải pháp AI",
+      "description": "Trợ lý thông minh, Tự động hóa quy trình kinh doanh, Giải pháp No-code/Low-code",
+      "features": [
+        "Trợ lý thông minh",
+        "Tự động hóa quy trình",
+        "Phân tích AI",
+        "Giải pháp No-code"
+      ]
+    },
+    "videoProduction": {
+      "title": "Sản xuất Video",
+      "description": "Tạo Video với AI, Hoạt hình 3D, Motion Graphics, Dịch vụ hậu kỳ",
+      "features": [
+        "Tạo Video với AI",
+        "Hoạt hình 3D",
+        "Motion Graphics",
+        "Hậu kỳ"
+      ]
+    },
+    "webDevelopment": {
+      "title": "Phát triển Web",
+      "description": "Ứng dụng Web tùy chỉnh, Giải pháp Thương mại điện tử, Progressive Web Apps",
+      "features": [
+        "Ứng dụng Web tùy chỉnh",
+        "Thương mại điện tử",
+        "Progressive Web Apps",
+        "Phát triển API"
+      ]
+    },
+    "digitalMarketing": {
+      "title": "Marketing Số",
+      "description": "Chiến lược thương hiệu, Tạo nội dung, Quản lý mạng xã hội, Tối ưu SEO",
+      "features": [
+        "Chiến lược thương hiệu",
+        "Tạo nội dung",
+        "Mạng xã hội",
+        "Tối ưu SEO"
+      ]
+    },
+    "learnMore": "Tìm hiểu thêm",
+    "cta": {
+      "title": "Bạn cần tư vấn dịch vụ phù hợp cho dự án của mình?",
+      "description": "Liên hệ tư vấn miễn phí",
+      "button": "Liên hệ tư vấn miễn phí"
+    }
+  },
+  "about": {
+    "title": "Về VizioCraft Design",
+    "subtitle": "Chúng tôi là đội ngũ chuyên gia đam mê công nghệ, cam kết mang đến những giải pháp AI và media sáng tạo nhất",
+    "companyName": "VizioCraft Design",
+    "companyDescription": "VizioCraft Design được thành lập với tầm nhìn trở thành đối tác công nghệ đáng tin cậy cho các doanh nghiệp muốn chuyển đổi số và áp dụng AI vào hoạt động kinh doanh.",
+    "story": {
+      "title": "Câu chuyện của chúng tôi",
+      "description": "VizioCraft Design được thành lập với tầm nhìn trở thành đối tác công nghệ đáng tin cậy cho các doanh nghiệp muốn chuyển đổi số và áp dụng AI vào hoạt động kinh doanh. Với đội ngũ chuyên gia giàu kinh nghiệm trong lĩnh vực AI, sản xuất media và phát triển web, chúng tôi đã giúp hàng trăm doanh nghiệp tối ưu hóa quy trình và tăng hiệu quả hoạt động."
+    },
+    "stats": {
+      "founded": "100+",
+      "headquarters": "50+",
+      "members": "5+",
+      "projects": "24/7"
+    },
+    "mission": {
+      "title": "Đổi mới sáng tạo",
+      "description": "Chúng tôi luôn tiên phong trong việc áp dụng công nghệ mới nhất để tạo ra những giải pháp đột phá."
+    },
+    "vision": {
+      "title": "Chất lượng cao",
+      "description": "Cam kết mang đến sản phẩm và dịch vụ chất lượng cao nhất, đáp ứng mọi yêu cầu của khách hàng."
+    },
+    "values": {
+      "partnership": "Hợp tác bền vững",
+      "excellence": "Xuất sắc"
+    }
+  },
+  "contact": {
+    "title": "Liên hệ với chúng tôi",
+    "subtitle": "Sẵn sàng bắt đầu dự án của bạn? Hãy liên hệ với chúng tôi để được tư vấn miễn phí",
+    "info": {
+      "title": "Gửi tin nhắn cho chúng tôi",
+      "description": "Thông tin liên hệ",
+      "phone": "+848 68 68 99 12",
+      "address": "Hà Nội, Cầu Giấy, Việt Nam",
+      "website": "Trang web",
+      "hours": "Giờ làm việc",
+      "schedule": {
+        "weekdays": "Thứ 2 - Thứ 6:",
+        "saturday": "Thứ 7:",
+        "sunday": "Chủ nhật:",
+        "weekdaysTime": "8:00 - 18:00",
+        "saturdayTime": "9:00 - 17:00",
+        "sundayTime": "Nghỉ"
+      }
+    },
+    "form": {
+      "title": "Gửi tin nhắn cho chúng tôi",
+      "name": "Họ và tên",
+      "email": "Email",
+      "company": "Công ty / Tổ chức",
+      "service": "Dịch vụ quan tâm",
+      "message": "Tin nhắn",
+      "required": "*",
+      "submit": "Gửi tin nhắn"
+    }
+  },
+  "learning": {
+    "title": "Trung tâm học tập",
+    "subtitle": "Mở rộng kỹ năng của bạn với các hướng dẫn và khóa học toàn diện",
+    "tabs": {
+      "tutorials": "Hướng dẫn",
+      "courses": "Khóa học"
+    },
+    "categories": {
+      "all": "Tất cả danh mục",
+      "aiAutomation": "AI & Tự động hóa",
+      "videoProduction": "Sản xuất Video",
+      "animationVfx": "Hoạt hình & VFX",
+      "webDevelopment": "Phát triển Web",
+      "marketing": "Marketing"
+    },
+    "difficulty": {
+      "beginner": "Cơ bản",
+      "intermediate": "Trung cấp",
+      "advanced": "Nâng cao"
+    },
+    "actions": {
+      "watchNow": "Xem ngay",
+      "enrollNow": "Đăng ký ngay"
+    }
+  },
+  "footer": {
+    "description": "© 2024 VizioCraft Design. Trao quyền Đổi mới Số với Công nghệ AI & Media.",
+    "rights": "Tất cả quyền được bảo lưu.",
+    "email": "contact@viziocraft.design"
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "backToHome": "Về trang chủ",
+    "readMore": "Đọc thêm",
     "viewAll": "Xem tất cả",
-    "exploreGallery": "Khám phá Thư viện đầy đủ",
-    "filters": {
-      "all": "Tất cả",
-      "images": "Hình ảnh",
-      "videos": "Video",
-      "featured": "Nổi bật",
-      "categories": "Danh mục",
-      "sortBy": "Sắp xếp theo",
-      "newest": "Mới nhất",
-      "oldest": "Cũ nhất",
-      "mostViewed": "Xem nhiều nhất",
-      "mostLiked": "Yêu thích nhất"
-    },
-    "actions": {
-      "view": "Xem",
-      "like": "Yêu thích",
-      "share": "Chia sẻ",
-      "download": "Tải xuống",
-      "viewDetails": "Xem chi tiết",
-      "fullscreen": "Toàn màn hình"
-    },
-    "details": {
-      "project": "Dự án",
-      "client": "Khách hàng",
-      "date": "Ngày",
-      "category": "Danh mục",
-      "description": "Mô tả",
-      "tags": "Thẻ",
-      "duration": "Thời lượng",
-      "resolution": "Độ phân giải",
-      "fileSize": "Kích thước file",
-      "views": "Lượt xem",
-      "likes": "Lượt thích"
-    },
-    "stats": {
-      "totalItems": "tổng số mục",
-      "images": "Hình ảnh",
-      "videos": "Video",
-      "featured": "Nổi bật",
-      "totalViews": "Tổng lượt xem",
-      "totalLikes": "Tổng lượt thích"
-    },
-    "search": {
-      "placeholder": "Tìm kiếm theo tiêu đề, mô tả, thẻ, dự án hoặc khách hàng...",
-      "noResults": "Không tìm thấy kết quả",
-      "noResultsDesc": "Thử điều chỉnh từ khóa tìm kiếm hoặc bộ lọc để tìm thấy nội dung bạn đang tìm kiếm.",
-      "clearFilters": "Xóa bộ lọc"
-    },
-    "pagination": {
-      "previous": "Trước",
-      "next": "Tiếp",
-      "page": "Trang",
-      "of": "của",
-      "showing": "Hiển thị",
-      "to": "đến",
-      "results": "kết quả"
-    },
-    "cta": {
-      "title": "Sẵn sàng tạo ra điều gì đó tuyệt vời?",
-      "description": "Hãy để chúng tôi biến tầm nhìn của bạn thành hiện thực với chuyên môn sáng tạo và công nghệ tiên tiến",
-      "startProject": "Bắt đầu Dự án của bạn",
-      "exploreMore": "Khám phá thêm"
-    },
-    "modal": {
-      "close": "Đóng",
-      "previous": "Trước",
-      "next": "Tiếp",
-      "projectDetails": "Chi tiết Dự án",
-      "technicalInfo": "Thông tin Kỹ thuật"
-    }
+    "getStarted": "Bắt đầu",
+    "contactUs": "Liên hệ"
   },
-
-  "// File: src/i18n/locales/en.json - Add gallery section": "",
-  "gallery_en": {
-    "title": "Creative Gallery",
-    "subtitle": "Explore our collection of creative work, from AI-powered videos to stunning visual designs",
-    "viewAll": "View All",
-    "exploreGallery": "Explore Full Gallery",
-    "filters": {
-      "all": "All",
-      "images": "Images",
-      "videos": "Videos",
-      "featured": "Featured",
-      "categories": "Categories",
-      "sortBy": "Sort By",
-      "newest": "Newest",
-      "oldest": "Oldest",
-      "mostViewed": "Most Viewed",
-      "mostLiked": "Most Liked"
-    },
-    "actions": {
-      "view": "View",
-      "like": "Like",
-      "share": "Share",
-      "download": "Download",
-      "viewDetails": "View Details",
-      "fullscreen": "Fullscreen"
-    },
-    "details": {
-      "project": "Project",
-      "client": "Client",
-      "date": "Date",
-      "category": "Category",
-      "description": "Description",
-      "tags": "Tags",
-      "duration": "Duration",
-      "resolution": "Resolution",
-      "fileSize": "File Size",
-      "views": "Views",
-      "likes": "Likes"
-    },
-    "stats": {
-      "totalItems": "total items",
-      "images": "Images",
-      "videos": "Videos",
-      "featured": "Featured",
-      "totalViews": "Total Views",
-      "totalLikes": "Total Likes"
-    },
-    "search": {
-      "placeholder": "Search by title, description, tags, project, or client...",
-      "noResults": "No results found",
-      "noResultsDesc": "Try adjusting your search terms or filters to find what you're looking for.",
-      "clearFilters": "Clear Filters"
-    },
-    "pagination": {
-      "previous": "Previous",
-      "next": "Next",
-      "page": "Page",
-      "of": "of",
-      "showing": "Showing",
-      "to": "to",
-      "results": "results"
-    },
-    "cta": {
-      "title": "Ready to Create Something Amazing?",
-      "description": "Let's bring your vision to life with our creative expertise and cutting-edge technology",
-      "startProject": "Start Your Project",
-      "exploreMore": "Explore More"
-    },
-    "modal": {
-      "close": "Close",
-      "previous": "Previous",
-      "next": "Next",
-      "projectDetails": "Project Details",
-      "technicalInfo": "Technical Info"
-    }
-  },
+  "assistant": {
+    "name": "Hoàng Anh",
+    "role": "Trợ lý ảo",
+    "welcome": "Xin chào! Tôi là Hoàng Anh, trợ lý ảo của VizioCraft Design. Tôi có thể giúp bạn tìm hiểu về dịch vụ của chúng tôi và trả lời các câu hỏi. Bạn cần hỗ trợ gì không?",
+    "placeholder": "Nhập tin nhắn của bạn...",
+    "suggestedQuestions": "Câu hỏi gợi ý:"
+  }
+}
