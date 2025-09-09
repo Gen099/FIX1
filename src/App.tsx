@@ -1,5 +1,5 @@
 // File: src/App.tsx
-// Updated routing setup để support service detail pages
+// Updated routing setup để support gallery pages
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -15,6 +15,7 @@ import P5Background from './components/P5Background';
 // Pages
 import HomePage from './pages/HomePage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
+import GalleryPage from './pages/GalleryPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 // Styles
@@ -40,6 +41,9 @@ const App: React.FC = () => {
               
               {/* Service Detail Pages */}
               <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
+              
+              {/* Gallery Pages */}
+              <Route path="/gallery" element={<GalleryPage />} />
               
               {/* 404 Page */}
               <Route path="*" element={<NotFoundPage />} />
