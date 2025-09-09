@@ -9,14 +9,14 @@
   },
   "hero": {
     "title": "VizioCraft Design",
-    "tagline": "AI & Media Technology Solutions",
-    "industry": "Artificial Intelligence • Media Production • Automation",
+    "tagline": "Giải pháp Công nghệ AI & Media",
+    "industry": "Trí tuệ nhân tạo • Sản xuất Media • Tự động hóa",
     "description": "Chúng tôi cung cấp giải pháp AI tiên tiến, sản xuất media chuyên nghiệp và automation thông minh. Đối tác công nghệ đáng tin cậy giúp doanh nghiệp chuyển đổi số và tối ưu hóa quy trình kinh doanh.",
     "stats": {
       "projectsCompleted": "Dự án hoàn thành",
       "clientsServed": "Khách hàng hài lòng",
       "yearsExperience": "Năm kinh nghiệm",
-      "teamMembers": "Hỗ trợ khách hàng"
+      "teamMembers": "Hỗ trợ 24/7"
     },
     "cta": {
       "exploreServices": "Khám phá dịch vụ",
@@ -27,43 +27,43 @@
     "title": "Dịch vụ của chúng tôi",
     "subtitle": "Chúng tôi cung cấp giải pháp toàn diện từ AI, sản xuất video đến phát triển web và marketing",
     "aiSolutions": {
-      "title": "AI Solutions",
-      "description": "Intelligent Agents, Business Process Automation, No-code/Low-code Solutions",
+      "title": "Giải pháp AI",
+      "description": "Trợ lý thông minh, Tự động hóa quy trình kinh doanh, Giải pháp No-code/Low-code",
       "features": [
-        "Intelligent Agents",
-        "Process Automation",
-        "AI Analytics",
-        "No-code Solutions"
+        "Trợ lý thông minh",
+        "Tự động hóa quy trình",
+        "Phân tích AI",
+        "Giải pháp No-code"
       ]
     },
     "videoProduction": {
-      "title": "Video Production",
-      "description": "AI-enhanced Video Creation, 3D Animation, Motion Graphics, Post-production Services",
+      "title": "Sản xuất Video",
+      "description": "Tạo Video với AI, Hoạt hình 3D, Motion Graphics, Dịch vụ hậu kỳ",
       "features": [
-        "AI Video Creation",
-        "3D Animation",
+        "Tạo Video với AI",
+        "Hoạt hình 3D",
         "Motion Graphics",
-        "Post-production"
+        "Hậu kỳ"
       ]
     },
     "webDevelopment": {
-      "title": "Web Development",
-      "description": "Custom Web Applications, E-commerce Solutions, Progressive Web Apps",
+      "title": "Phát triển Web",
+      "description": "Ứng dụng Web tùy chỉnh, Giải pháp Thương mại điện tử, Progressive Web Apps",
       "features": [
-        "Custom Web Apps",
-        "E-commerce",
+        "Ứng dụng Web tùy chỉnh",
+        "Thương mại điện tử",
         "Progressive Web Apps",
-        "API Development"
+        "Phát triển API"
       ]
     },
     "digitalMarketing": {
-      "title": "Digital Marketing",
-      "description": "Brand Strategy, Content Creation, Social Media Management, SEO Optimization",
+      "title": "Marketing Số",
+      "description": "Chiến lược thương hiệu, Tạo nội dung, Quản lý mạng xã hội, Tối ưu SEO",
       "features": [
-        "Brand Strategy",
-        "Content Creation",
-        "Social Media",
-        "SEO Optimization"
+        "Chiến lược thương hiệu",
+        "Tạo nội dung",
+        "Mạng xã hội",
+        "Tối ưu SEO"
       ]
     },
     "learnMore": "Tìm hiểu thêm",
@@ -109,7 +109,7 @@
       "description": "Thông tin liên hệ",
       "phone": "+848 68 68 99 12",
       "address": "Hà Nội, Cầu Giấy, Việt Nam",
-      "website": "Website",
+      "website": "Trang web",
       "hours": "Giờ làm việc",
       "schedule": {
         "weekdays": "Thứ 2 - Thứ 6:",
@@ -132,18 +132,18 @@
     }
   },
   "learning": {
-    "title": "Learning Center",
-    "subtitle": "Mở rộng kỹ năng của bạn với các tutorial và khóa học toàn diện",
+    "title": "Trung tâm học tập",
+    "subtitle": "Mở rộng kỹ năng của bạn với các hướng dẫn và khóa học toàn diện",
     "tabs": {
-      "tutorials": "Tutorials",
-      "courses": "Courses"
+      "tutorials": "Hướng dẫn",
+      "courses": "Khóa học"
     },
     "categories": {
       "all": "Tất cả danh mục",
-      "aiAutomation": "AI & Automation",
-      "videoProduction": "Video Production",
-      "animationVfx": "Animation & VFX",
-      "webDevelopment": "Web Development",
+      "aiAutomation": "AI & Tự động hóa",
+      "videoProduction": "Sản xuất Video",
+      "animationVfx": "Hoạt hình & VFX",
+      "webDevelopment": "Phát triển Web",
       "marketing": "Marketing"
     },
     "difficulty": {
@@ -157,7 +157,7 @@
     }
   },
   "footer": {
-    "description": "© 2024 VizioCraft Design. Empowering Digital Innovation with AI & Media Technology.",
+    "description": "© 2024 VizioCraft Design. Trao quyền Đổi mới Số với Công nghệ AI & Media.",
     "rights": "Tất cả quyền được bảo lưu.",
     "email": "contact@viziocraft.design"
   },
@@ -178,4 +178,3 @@
     "suggestedQuestions": "Câu hỏi gợi ý:"
   }
 }
-
