@@ -1,450 +1,607 @@
+// Learning Center Optimization
+// File: src/components/sections/LearningSection.tsx
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
-  Play, 
-  Clock, 
-  Users, 
-  Star, 
-  BookOpen, 
-  Video, 
-  FileText, 
-  Download,
-  Search,
-  Filter,
-  ExternalLink
+  Play, BookOpen, Clock, Star, 
+  User, Calendar, Award, Download,
+  Filter, Search, ChevronRight,
+  Video, FileText, Code, Palette,
+  Brain, TrendingUp, Users, Check
 } from 'lucide-react';
-import { contentManager, Course, Tutorial, Article } from '../data/contentManager';
 
-const LearningPage: React.FC = () => {
+interface LearningContent {
+  id: string;
+  type: 'tutorial' | 'course';
+  title: string;
+  description: string;
+  instructor: string;
+  instructorAvatar: string;
+  duration: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  category: string;
+  thumbnail: string;
+  rating: number;
+  enrolled: number;
+  lessons?: number;
+  price?: number;
+  isFree: boolean;
+  tags: string[];
+  lastUpdated: string;
+  prerequisites?: string[];
+  certificate: boolean;
+  downloadable: boolean;
+}
+
+interface Category {
+  id: string;
+  name: string;
+  icon: React.ComponentType<any>;
+  color: string;
+  count: number;
+}
+
+const ContentCard: React.FC<{ 
+  content: LearningContent; 
+  onAction: (content: LearningContent) => void 
+}> = ({ content, onAction }) => {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<'courses' | 'tutorials' | 'articles'>('courses');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedLevel, setSelectedLevel] = useState('all');
 
-  // Get content from content manager
-  const [courses, setCourses] = useState<Course[]>([]);
-  const [tutorials, setTutorials] = useState<Tutorial[]>([]);
-  const [articles, setArticles] = useState<Article[]>([]);
-
-  useEffect(() => {
-    // Load content when component mounts
-    setCourses(contentManager.getCourses({ published: true }));
-    setTutorials(contentManager.getTutorials({ published: true }));
-    setArticles(contentManager.getArticles({ published: true }));
-    
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-  }, []);
-
-  // Filter content based on search and filters
-  const getFilteredContent = () => {
-    let content: any[] = [];
-    
-    switch (activeTab) {
-      case 'courses':
-        content = courses.filter(course => {
-          const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                               course.description.toLowerCase().includes(searchQuery.toLowerCase());
-          const matchesCategory = selectedCategory === 'all' || course.category === selectedCategory;
-          const matchesLevel = selectedLevel === 'all' || course.level === selectedLevel;
-          return matchesSearch && matchesCategory && matchesLevel;
-        });
-        break;
-      case 'tutorials':
-        content = tutorials.filter(tutorial => {
-          const matchesSearch = tutorial.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                               tutorial.description.toLowerCase().includes(searchQuery.toLowerCase());
-          const matchesLevel = selectedLevel === 'all' || tutorial.difficulty === selectedLevel;
-          return matchesSearch && matchesLevel;
-        });
-        break;
-      case 'articles':
-        content = articles.filter(article => {
-          const matchesSearch = article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                               article.description.toLowerCase().includes(searchQuery.toLowerCase());
-          const matchesCategory = selectedCategory === 'all' || article.category === selectedCategory;
-          return matchesSearch && matchesCategory;
-        });
-        break;
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case 'beginner': return 'text-green-400 bg-green-400/20';
+      case 'intermediate': return 'text-yellow-400 bg-yellow-400/20';
+      case 'advanced': return 'text-red-400 bg-red-400/20';
+      default: return 'text-gray-400 bg-gray-400/20';
     }
-    
-    return content;
   };
 
-  const filteredContent = getFilteredContent();
+  const getTypeIcon = () => {
+    return content.type === 'tutorial' ? Video : BookOpen;
+  };
 
-  const renderCourseCard = (course: Course) => (
-    <div key={course.id} className="bg-gray-800 rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 group">
-      <div className="relative">
-        <img 
-          src={course.thumbnail} 
-          alt={course.title}
-          className="w-full h-48 object-cover"
-          onError={(e) => {
-            e.currentTarget.src = '/images/placeholder-course.jpg';
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute top-4 right-4">
-          <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-            course.level === 'beginner' ? 'bg-green-500/20 text-green-400' :
-            course.level === 'intermediate' ? 'bg-yellow-500/20 text-yellow-400' :
-            'bg-red-500/20 text-red-400'
-          }`}>
-            {course.level}
-          </span>
-        </div>
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="flex items-center justify-between text-white">
-            <div className="flex items-center space-x-4 text-sm">
-              <div className="flex items-center">
-                <Clock size={14} className="mr-1" />
-                {course.duration}
-              </div>
-              <div className="flex items-center">
-                <BookOpen size={14} className="mr-1" />
-                {course.lessons} lessons
-              </div>
-            </div>
-            {course.videoUrl && (
-              <a 
-                href={course.videoUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-cyan-500 hover:bg-cyan-600 p-2 rounded-full transition-colors"
-              >
-                <Play size={16} />
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
-      
-      <div className="p-6">
-        <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-          {course.title}
-        </h3>
-        <p className="text-gray-400 mb-4 line-clamp-2">{course.description}</p>
-        
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center space-x-4 text-sm text-gray-400">
-            <div className="flex items-center">
-              <Users size={14} className="mr-1" />
-              {course.students}
-            </div>
-            <div className="flex items-center">
-              <Star size={14} className="mr-1 text-yellow-400" />
-              {course.rating}
-            </div>
-          </div>
-          <span className="text-cyan-400 font-semibold">{course.price}</span>
-        </div>
-        
-        <div className="flex flex-wrap gap-2 mb-4">
-          {course.tags.slice(0, 3).map((tag, index) => (
-            <span key={index} className="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded">
-              {tag}
-            </span>
-          ))}
-        </div>
-        
-        <div className="text-sm text-gray-400 mb-4">
-          Instructor: <span className="text-white">{course.instructor}</span>
-        </div>
-        
-        <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-2 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all">
-          {t('Enroll Now') || 'Enroll Now'}
-        </button>
-      </div>
-    </div>
-  );
-
-  const renderTutorialCard = (tutorial: Tutorial) => (
-    <div key={tutorial.id} className="bg-gray-800 rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 group">
-      <div className="relative">
-        <img 
-          src={tutorial.thumbnail} 
-          alt={tutorial.title}
-          className="w-full h-48 object-cover"
-          onError={(e) => {
-            e.currentTarget.src = '/images/placeholder-tutorial.jpg';
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute top-4 left-4">
-          <span className={`px-3 py-1 rounded-full text-xs font-medium flex items-center ${
-            tutorial.type === 'video' ? 'bg-red-500/20 text-red-400' : 'bg-blue-500/20 text-blue-400'
-          }`}>
-            {tutorial.type === 'video' ? <Video size={12} className="mr-1" /> : <FileText size={12} className="mr-1" />}
-            {tutorial.type}
-          </span>
-        </div>
-        <div className="absolute top-4 right-4">
-          <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-            tutorial.difficulty === 'beginner' ? 'bg-green-500/20 text-green-400' :
-            tutorial.difficulty === 'intermediate' ? 'bg-yellow-500/20 text-yellow-400' :
-            'bg-red-500/20 text-red-400'
-          }`}>
-            {tutorial.difficulty}
-          </span>
-        </div>
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="flex items-center justify-between text-white">
-            <div className="flex items-center text-sm">
-              <Clock size={14} className="mr-1" />
-              {tutorial.duration}
-            </div>
-            <div className="flex space-x-2">
-              {tutorial.videoUrl && (
-                <a 
-                  href={tutorial.videoUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-red-500 hover:bg-red-600 p-2 rounded-full transition-colors"
-                  title="Watch Video"
-                >
-                  <Play size={16} />
-                </a>
-              )}
-              {tutorial.downloadUrl && (
-                <a 
-                  href={tutorial.downloadUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-green-500 hover:bg-green-600 p-2 rounded-full transition-colors"
-                  title="Download Assets"
-                >
-                  <Download size={16} />
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div className="p-6">
-        <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-          {tutorial.title}
-        </h3>
-        <p className="text-gray-400 mb-4 line-clamp-2">{tutorial.description}</p>
-        
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tutorial.tags.slice(0, 3).map((tag, index) => (
-            <span key={index} className="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded">
-              {tag}
-            </span>
-          ))}
-        </div>
-        
-        <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
-          <span>By: <span className="text-white">{tutorial.author}</span></span>
-          <span>{new Date(tutorial.publishDate).toLocaleDateString()}</span>
-        </div>
-        
-        <div className="flex space-x-2">
-          {tutorial.documentUrl && (
-            <a 
-              href={tutorial.documentUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors text-center flex items-center justify-center"
-            >
-              <ExternalLink size={16} className="mr-2" />
-              {t('View Document') || 'View Document'}
-            </a>
-          )}
-          {tutorial.videoUrl && (
-            <a 
-              href={tutorial.videoUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition-colors text-center flex items-center justify-center"
-            >
-              <Play size={16} className="mr-2" />
-              {t('Watch Video') || 'Watch Video'}
-            </a>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-
-  const renderArticleCard = (article: Article) => (
-    <div key={article.id} className="bg-gray-800 rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 group">
-      <div className="relative">
-        <img 
-          src={article.thumbnail} 
-          alt={article.title}
-          className="w-full h-48 object-cover"
-          onError={(e) => {
-            e.currentTarget.src = '/images/placeholder-article.jpg';
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute top-4 right-4">
-          <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-medium">
-            {article.category}
-          </span>
-        </div>
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="flex items-center justify-between text-white text-sm">
-            <span>{article.readTime}</span>
-            <span>{new Date(article.publishDate).toLocaleDateString()}</span>
-          </div>
-        </div>
-      </div>
-      
-      <div className="p-6">
-        <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-          {article.title}
-        </h3>
-        <p className="text-gray-400 mb-4 line-clamp-3">{article.description}</p>
-        
-        <div className="flex flex-wrap gap-2 mb-4">
-          {article.tags.slice(0, 3).map((tag, index) => (
-            <span key={index} className="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded">
-              {tag}
-            </span>
-          ))}
-        </div>
-        
-        <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
-          <span>By: <span className="text-white">{article.author}</span></span>
-          <span>{article.readTime}</span>
-        </div>
-        
-        <button className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-2 rounded-lg hover:from-purple-600 hover:to-indigo-700 transition-all">
-          {t('Read Article') || 'Read Article'}
-        </button>
-      </div>
-    </div>
-  );
+  const TypeIcon = getTypeIcon();
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white pt-20">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              {t('learning.title') || 'Learning Center'}
-            </span>
-          </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            {t('learning.subtitle') || 'Expand your skills with our comprehensive courses, tutorials, and articles'}
-          </p>
-        </div>
-
-        {/* Navigation Tabs */}
-        <div className="flex justify-center mb-8">
-          <div className="flex space-x-1 bg-gray-800 p-1 rounded-lg">
-            {[
-              { id: 'courses', label: 'Courses', icon: BookOpen },
-              { id: 'tutorials', label: 'Tutorials', icon: Video },
-              { id: 'articles', label: 'Articles', icon: FileText }
-            ].map(tab => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`flex items-center px-6 py-3 rounded-md transition-colors ${
-                    activeTab === tab.id
-                      ? 'bg-cyan-600 text-white'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-700'
-                  }`}
-                >
-                  <Icon size={20} className="mr-2" />
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Filters */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
-          <div className="flex-1 relative">
-            <Search size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-            <input
-              type="text"
-              placeholder={t('learning search') || `Search ${activeTab}...`}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
-            />
-          </div>
-          
-          <select
-            value={selectedLevel}
-            onChange={(e) => setSelectedLevel(e.target.value)}
-            className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-cyan-500"
+    <div className="group bg-gradient-to-br from-gray-900/80 to-gray-800/80 rounded-2xl border border-gray-700 overflow-hidden hover:border-cyan-400/50 transition-all duration-500 hover:scale-105">
+      {/* Thumbnail */}
+      <div className="relative aspect-video bg-gradient-to-br from-gray-700 to-gray-800 overflow-hidden">
+        <img 
+          src={content.thumbnail} 
+          alt={content.title}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        />
+        
+        {/* Overlay with play button */}
+        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors flex items-center justify-center">
+          <button 
+            onClick={() => onAction(content)}
+            className="w-16 h-16 bg-cyan-500/90 rounded-full flex items-center justify-center hover:bg-cyan-400 transition-colors transform group-hover:scale-110"
           >
-            <option value="all">Tất cả cấp độ</option>
-            <option value="beginner">Cơ bản</option>
-            <option value="intermediate">Trung cấp</option>
-            <option value="advanced">Nâng cao</option>
-          </select>
+            <Play className="w-8 h-8 text-white ml-1" />
+          </button>
+        </div>
 
-          {(activeTab === 'courses' || activeTab === 'articles') && (
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-cyan-500"
-            >
-              <option value="all">Tất cả danh mục</option>
-              <option value="aiAutomation">AI & Automation</option>
-              <option value="videoProduction">Video Production</option>
-              <option value="webDevelopment">Web Development</option>
-              <option value="digitalMarketing">Digital Marketing</option>
-            </select>
+        {/* Type badge */}
+        <div className="absolute top-4 left-4">
+          <div className="flex items-center gap-2 px-3 py-1 bg-black/80 rounded-full text-xs">
+            <TypeIcon className="w-4 h-4 text-cyan-400" />
+            <span className="text-white font-semibold">
+              {content.type === 'tutorial' ? 'Tutorial' : 'Course'}
+            </span>
+          </div>
+        </div>
+
+        {/* Duration */}
+        <div className="absolute top-4 right-4">
+          <div className="flex items-center gap-1 px-2 py-1 bg-black/80 rounded text-xs text-white">
+            <Clock className="w-3 h-3" />
+            {content.duration}
+          </div>
+        </div>
+
+        {/* Price badge */}
+        <div className="absolute bottom-4 right-4">
+          {content.isFree ? (
+            <span className="px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">
+              FREE
+            </span>
+          ) : (
+            <span className="px-3 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold rounded-full">
+              ${content.price}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-6">
+        {/* Category and Difficulty */}
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-xs text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded-full">
+            {content.category}
+          </span>
+          <span className={`text-xs px-2 py-1 rounded-full ${getDifficultyColor(content.difficulty)}`}>
+            {t(`learning.difficulty.${content.difficulty}`)}
+          </span>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors line-clamp-2">
+          {content.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-300 text-sm mb-4 line-clamp-3 leading-relaxed">
+          {content.description}
+        </p>
+
+        {/* Stats */}
+        <div className="flex items-center gap-4 mb-4 text-xs text-gray-400">
+          <div className="flex items-center gap-1">
+            <Star className="w-4 h-4 text-yellow-400" />
+            <span>{content.rating}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Users className="w-4 h-4" />
+            <span>{content.enrolled.toLocaleString()}</span>
+          </div>
+          {content.lessons && (
+            <div className="flex items-center gap-1">
+              <FileText className="w-4 h-4" />
+              <span>{content.lessons} lessons</span>
+            </div>
           )}
         </div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredContent.map(item => {
-            switch (activeTab) {
-              case 'courses':
-                return renderCourseCard(item as Course);
-              case 'tutorials':
-                return renderTutorialCard(item as Tutorial);
-              case 'articles':
-                return renderArticleCard(item as Article);
-              default:
-                return null;
-            }
-          })}
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {content.tags.slice(0, 3).map((tag, index) => (
+            <span 
+              key={index}
+              className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded border border-gray-600"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
 
-        {/* Empty State */}
-        {filteredContent.length === 0 && (
-          <div className="text-center py-12">
-            <div className="text-gray-400 mb-4">
-              <BookOpen size={48} className="mx-auto mb-4 opacity-50" />
-              <p>{t('learning.noContent') || `No ${activeTab} found`}</p>
-              <p className="text-sm">{t('learning.tryDifferentSearch') || 'Try adjusting your search or filters'}</p>
-            </div>
+        {/* Instructor */}
+        <div className="flex items-center gap-3 mb-4">
+          <img 
+            src={content.instructorAvatar} 
+            alt={content.instructor}
+            className="w-8 h-8 rounded-full object-cover"
+          />
+          <div>
+            <p className="text-white text-sm font-semibold">{content.instructor}</p>
+            <p className="text-gray-400 text-xs">Updated {content.lastUpdated}</p>
           </div>
-        )}
+        </div>
 
-        {/* Admin Link */}
-        
-        {/* <div className="text-center mt-12">
-          <a 
-            href="/admin" 
-            className="inline-flex items-center px-6 py-3 bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white rounded-lg transition-colors"
-          >
-            <Filter size={16} className="mr-2" />
-            Content Management
-          </a>
-        </div>*/}
+        {/* Features */}
+        <div className="flex items-center gap-4 mb-6 text-xs text-gray-400">
+          {content.certificate && (
+            <div className="flex items-center gap-1">
+              <Award className="w-4 h-4 text-yellow-400" />
+              <span>Certificate</span>
+            </div>
+          )}
+          {content.downloadable && (
+            <div className="flex items-center gap-1">
+              <Download className="w-4 h-4 text-green-400" />
+              <span>Download</span>
+            </div>
+          )}
+        </div>
+
+        {/* Action Button */}
+        <button 
+          onClick={() => onAction(content)}
+          className="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+        >
+          {content.type === 'tutorial' ? t('learning.actions.watchNow') : t('learning.actions.enrollNow')}
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
     </div>
-    
   );
 };
 
-export default LearningPage;
+const FilterBar: React.FC<{
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+  activeCategory: string;
+  setActiveCategory: (category: string) => void;
+  activeDifficulty: string;
+  setActiveDifficulty: (difficulty: string) => void;
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+  categories: Category[];
+}> = ({ 
+  activeTab, setActiveTab, 
+  activeCategory, setActiveCategory,
+  activeDifficulty, setActiveDifficulty,
+  searchTerm, setSearchTerm,
+  categories 
+}) => {
+  const { t } = useTranslation();
 
+  return (
+    <div className="bg-gray-900/50 rounded-2xl border border-gray-700 p-6 mb-8">
+      {/* Tabs */}
+      <div className="flex justify-center mb-6">
+        <div className="bg-gray-800 rounded-full p-1 inline-flex">
+          <button
+            onClick={() => setActiveTab('tutorials')}
+            className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+              activeTab === 'tutorials' 
+                ? 'bg-cyan-500 text-white shadow-lg' 
+                : 'text-gray-300 hover:text-white'
+            }`}
+          >
+            {t('learning.tabs.tutorials')}
+          </button>
+          <button
+            onClick={() => setActiveTab('courses')}
+            className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+              activeTab === 'courses' 
+                ? 'bg-cyan-500 text-white shadow-lg' 
+                : 'text-gray-300 hover:text-white'
+            }`}
+          >
+            {t('learning.tabs.courses')}
+          </button>
+        </div>
+      </div>
+
+      {/* Search */}
+      <div className="relative mb-6">
+        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+        <input
+          type="text"
+          placeholder="Search tutorials and courses..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-400/50 transition-colors"
+        />
+      </div>
+
+      {/* Filters */}
+      <div className="grid md:grid-cols-2 gap-6">
+        {/* Categories */}
+        <div>
+          <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
+            <Filter className="w-4 h-4" />
+            Categories
+          </h4>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setActiveCategory('all')}
+              className={`px-3 py-2 text-sm rounded-lg transition-colors ${
+                activeCategory === 'all'
+                  ? 'bg-cyan-500 text-white'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              }`}
+            >
+              {t('learning.categories.all')}
+            </button>
+            {categories.map(category => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`px-3 py-2 text-sm rounded-lg transition-colors flex items-center gap-2 ${
+                  activeCategory === category.id
+                    ? 'bg-cyan-500 text-white'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                }`}
+              >
+                <category.icon className="w-4 h-4" />
+                {category.name}
+                <span className={`text-xs px-1.5 py-0.5 rounded ${category.color}`}>
+                  {category.count}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Difficulty */}
+        <div>
+          <h4 className="text-white font-semibold mb-3">Difficulty Level</h4>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setActiveDifficulty('all')}
+              className={`px-3 py-2 text-sm rounded-lg transition-colors ${
+                activeDifficulty === 'all'
+                  ? 'bg-cyan-500 text-white'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              }`}
+            >
+              All Levels
+            </button>
+            {['beginner', 'intermediate', 'advanced'].map(level => (
+              <button
+                key={level}
+                onClick={() => setActiveDifficulty(level)}
+                className={`px-3 py-2 text-sm rounded-lg transition-colors ${
+                  activeDifficulty === level
+                    ? 'bg-cyan-500 text-white'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                }`}
+              >
+                {t(`learning.difficulty.${level}`)}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const LearningSection: React.FC = () => {
+  const { t } = useTranslation();
+  const [activeTab, setActiveTab] = useState('tutorials');
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeDifficulty, setActiveDifficulty] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const categories: Category[] = [
+    {
+      id: 'aiAutomation',
+      name: t('learning.categories.aiAutomation'),
+      icon: Brain,
+      color: 'bg-purple-400/20 text-purple-400',
+      count: 12
+    },
+    {
+      id: 'videoProduction',
+      name: t('learning.categories.videoProduction'),
+      icon: Video,
+      color: 'bg-red-400/20 text-red-400',
+      count: 8
+    },
+    {
+      id: 'animationVfx',
+      name: t('learning.categories.animationVfx'),
+      icon: Palette,
+      color: 'bg-pink-400/20 text-pink-400',
+      count: 6
+    },
+    {
+      id: 'webDevelopment',
+      name: t('learning.categories.webDevelopment'),
+      icon: Code,
+      color: 'bg-blue-400/20 text-blue-400',
+      count: 10
+    },
+    {
+      id: 'marketing',
+      name: t('learning.categories.marketing'),
+      icon: TrendingUp,
+      color: 'bg-green-400/20 text-green-400',
+      count: 7
+    }
+  ];
+
+  const learningContent: LearningContent[] = [
+    {
+      id: '1',
+      type: 'tutorial',
+      title: 'Building Your First AI Chatbot with Python',
+      description: 'Learn how to create an intelligent chatbot using Python, OpenAI API, and natural language processing techniques.',
+      instructor: 'Dr. Minh Nguyen',
+      instructorAvatar: '/images/instructors/minh.jpg',
+      duration: '45 min',
+      difficulty: 'beginner',
+      category: 'AI & Automation',
+      thumbnail: '/images/tutorials/ai-chatbot.jpg',
+      rating: 4.8,
+      enrolled: 1250,
+      isFree: true,
+      tags: ['Python', 'OpenAI', 'NLP', 'Chatbot'],
+      lastUpdated: '2 days ago',
+      certificate: false,
+      downloadable: true
+    },
+    {
+      id: '2',
+      type: 'course',
+      title: 'Complete AI Automation Mastery',
+      description: 'Comprehensive course covering AI automation from basics to advanced implementation for business processes.',
+      instructor: 'Son Pham',
+      instructorAvatar: '/images/instructors/son.jpg',
+      duration: '12 hours',
+      difficulty: 'intermediate',
+      category: 'AI & Automation',
+      thumbnail: '/images/courses/ai-automation.jpg',
+      rating: 4.9,
+      enrolled: 890,
+      lessons: 24,
+      price: 149,
+      isFree: false,
+      tags: ['AI', 'Automation', 'Business Process', 'Machine Learning'],
+      lastUpdated: '1 week ago',
+      prerequisites: ['Basic programming knowledge', 'Understanding of APIs'],
+      certificate: true,
+      downloadable: true
+    },
+    {
+      id: '3',
+      type: 'tutorial',
+      title: 'Creating Stunning Motion Graphics with After Effects',
+      description: 'Step-by-step guide to creating professional motion graphics and animations using Adobe After Effects.',
+      instructor: 'Linh Tran',
+      instructorAvatar: '/images/instructors/linh.jpg',
+      duration: '1.5 hours',
+      difficulty: 'intermediate',
+      category: 'Video Production',
+      thumbnail: '/images/tutorials/motion-graphics.jpg',
+      rating: 4.7,
+      enrolled: 2100,
+      isFree: true,
+      tags: ['After Effects', 'Motion Graphics', 'Animation', 'Design'],
+      lastUpdated: '3 days ago',
+      certificate: false,
+      downloadable: false
+    },
+    {
+      id: '4',
+      type: 'course',
+      title: 'React & TypeScript Development Bootcamp',
+      description: 'Master modern web development with React, TypeScript, and cutting-edge tools and techniques.',
+      instructor: 'Duc Le',
+      instructorAvatar: '/images/instructors/duc.jpg',
+      duration: '20 hours',
+      difficulty: 'advanced',
+      category: 'Web Development',
+      thumbnail: '/images/courses/react-typescript.jpg',
+      rating: 4.9,
+      enrolled: 1450,
+      lessons: 40,
+      price: 199,
+      isFree: false,
+      tags: ['React', 'TypeScript', 'JavaScript', 'Frontend'],
+      lastUpdated: '5 days ago',
+      prerequisites: ['HTML/CSS knowledge', 'JavaScript fundamentals'],
+      certificate: true,
+      downloadable: true
+    },
+    {
+      id: '5',
+      type: 'tutorial',
+      title: 'AI-Powered Video Editing Techniques',
+      description: 'Discover how to leverage AI tools to speed up your video editing workflow and create professional content.',
+      instructor: 'Linh Tran',
+      instructorAvatar: '/images/instructors/linh.jpg',
+      duration: '35 min',
+      difficulty: 'beginner',
+      category: 'Video Production',
+      thumbnail: '/images/tutorials/ai-video-editing.jpg',
+      rating: 4.6,
+      enrolled: 980,
+      isFree: true,
+      tags: ['AI', 'Video Editing', 'Automation', 'Premiere Pro'],
+      lastUpdated: '1 week ago',
+      certificate: false,
+      downloadable: true
+    },
+    {
+      id: '6',
+      type: 'course',
+      title: 'Digital Marketing with AI Tools',
+      description: 'Learn how to leverage AI for content creation, social media management, and performance optimization.',
+      instructor: 'Marketing Team',
+      instructorAvatar: '/images/instructors/marketing.jpg',
+      duration: '8 hours',
+      difficulty: 'intermediate',
+      category: 'Marketing',
+      thumbnail: '/images/courses/ai-marketing.jpg',
+      rating: 4.8,
+      enrolled: 1120,
+      lessons: 16,
+      price: 99,
+      isFree: false,
+      tags: ['Digital Marketing', 'AI Tools', 'Content Creation', 'Analytics'],
+      lastUpdated: '4 days ago',
+      prerequisites: ['Basic marketing knowledge'],
+      certificate: true,
+      downloadable: false
+    }
+  ];
+
+  // Filter content based on active filters
+  const filteredContent = learningContent.filter(content => {
+    const matchesTab = content.type === (activeTab === 'tutorials' ? 'tutorial' : 'course');
+    const matchesCategory = activeCategory === 'all' || content.category.toLowerCase().includes(activeCategory.toLowerCase());
+    const matchesDifficulty = activeDifficulty === 'all' || content.difficulty === activeDifficulty;
+    const matchesSearch = searchTerm === '' || 
+      content.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      content.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      content.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    
+    return matchesTab && matchesCategory && matchesDifficulty && matchesSearch;
+  });
+
+  const handleAction = (content: LearningContent) => {
+    console.log('Action triggered for:', content.title);
+    // Here you would navigate to the content or open a modal
+  };
+
+  return (
+    <section id="learning" className="py-20 px-4 bg-black relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(6,182,212,0.1),transparent_50%)]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+              {t('learning.title')}
+            </span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            {t('learning.subtitle')}
+          </p>
+        </div>
+
+        {/* Filter Bar */}
+        <FilterBar
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
+          activeDifficulty={activeDifficulty}
+          setActiveDifficulty={setActiveDifficulty}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          categories={categories}
+        />
+
+        {/* Content Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {filteredContent.map(content => (
+            <ContentCard 
+              key={content.id} 
+              content={content} 
+              onAction={handleAction}
+            />
+          ))}
+        </div>
+
+        {/* Empty state */}
+        {filteredContent.length === 0 && (
+          <div className="text-center py-16">
+            <BookOpen className="w-24 h-24 text-gray-600 mx-auto mb-6" />
+            <h3 className="text-2xl font-bold text-gray-400 mb-4">No content found</h3>
+            <p className="text-gray-500 max-w-md mx-auto">
+              Try adjusting your filters or search terms to find the content you're looking for.
+            </p>
+          </div>
+        )}
+
+        {/* CTA Section */}
+        <div className="text-center bg-gradient-to-r from-cyan-500/10 to-blue-600/10 rounded-2xl border border-cyan-400/20 p-12">
+          <h3 className="text-3xl font-bold text-white mb-4">Become an Instructor</h3>
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Share your expertise with our community. Create tutorials and courses to help others learn and grow.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-semibold text-lg shadow-2xl hover:shadow-cyan-500/40 transition-all duration-300 hover:scale-105">
+              Become an Instructor
+            </button>
+            <button className="px-8 py-4 border-2 border-gray-600 text-white rounded-full font-semibold text-lg hover:border-cyan-400 hover:bg-cyan-400/10 transition-all duration-300">
+              Submit Tutorial
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default LearningSection;
