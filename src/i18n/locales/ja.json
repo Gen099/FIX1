@@ -1,180 +1,171 @@
 {
+  "// ===== FILE: src/i18n/locales/ja.json =====": "",
+  "// Add gallery section to existing ja.json": "",
+
   "nav": {
     "home": "ホーム",
-    "services": "サービス",
+    "services": "サービス", 
+    "gallery": "ギャラリー",
     "learning": "ラーニング",
     "about": "会社概要",
     "contact": "お問い合わせ",
     "contactNow": "今すぐお問い合わせ"
   },
-  "hero": {
-    "title": "VizioCraft Design",
-    "tagline": "AI & メディアテクノロジーソリューション",
-    "industry": "人工知能 • メディア制作 • 自動化",
-    "description": "先進的なAIソリューション、プロフェッショナルなメディア制作、インテリジェント自動化を提供しています。企業のデジタル変革とビジネスプロセス最適化を支援する信頼できるテクノロジーパートナーです。",
-    "stats": {
-      "projectsCompleted": "完了プロジェクト",
-      "clientsServed": "満足したクライアント",
-      "yearsExperience": "年の経験",
-      "teamMembers": "24時間サポート"
-    },
-    "cta": {
-      "exploreServices": "サービスを探索",
-      "aboutUs": "会社概要"
-    }
-  },
-  "services": {
-    "title": "私たちのサービス",
-    "subtitle": "AIからビデオ制作、ウェブ開発、マーケティングまで包括的なソリューションを提供します",
-    "aiSolutions": {
-      "title": "AIソリューション",
-      "description": "インテリジェントエージェント、ビジネスプロセス自動化、ノーコード/ローコードソリューション",
-      "features": [
-        "インテリジェントエージェント",
-        "プロセス自動化",
-        "AI分析",
-        "ノーコードソリューション"
-      ]
-    },
-    "videoProduction": {
-      "title": "ビデオ制作",
-      "description": "AI強化ビデオ作成、3Dアニメーション、モーショングラフィックス、ポストプロダクションサービス",
-      "features": [
-        "AIビデオ作成",
-        "3Dアニメーション",
-        "モーショングラフィックス",
-        "ポストプロダクション"
-      ]
-    },
-    "webDevelopment": {
-      "title": "ウェブ開発",
-      "description": "カスタムウェブアプリケーション、Eコマースソリューション、プログレッシブウェブアプリ",
-      "features": [
-        "カスタムウェブアプリ",
-        "Eコマース",
-        "プログレッシブウェブアプリ",
-        "API開発"
-      ]
-    },
-    "digitalMarketing": {
-      "title": "デジタルマーケティング",
-      "description": "ブランド戦略、コンテンツ作成、ソーシャルメディア管理、SEO最適化",
-      "features": [
-        "ブランド戦略",
-        "コンテンツ作成",
-        "ソーシャルメディア",
-        "SEO最適化"
-      ]
-    },
-    "learnMore": "詳細を見る",
-    "cta": {
-      "title": "プロジェクトに適したサービスのコンサルテーションが必要ですか？",
-      "description": "無料コンサルテーションにお問い合わせください",
-      "button": "無料コンサルテーションを受ける"
-    }
-  },
-  "about": {
-    "title": "VizioCraft Designについて",
-    "subtitle": "私たちは技術に情熱を持つ専門家チームで、最も創造的なAI・メディアソリューションをお届けすることをお約束します",
-    "companyName": "VizioCraft Design",
-    "companyDescription": "VizioCraft Designは、デジタル変革を望み、ビジネス運営にAIを適用したい企業の信頼できる技術パートナーになるという使命を持って設立されました。",
-    "story": {
-      "title": "私たちのストーリー",
-      "description": "VizioCraft Designは、デジタル変革を望み、ビジネス運営にAIを適用したい企業の信頼できる技術パートナーになるという使命を持って設立されました。AI、メディア制作、ウェブ開発の分野で経験豊富な専門家チームにより、数百の企業がプロセスを最適化し、運営効率を向上させることを支援してきました。"
-    },
-    "stats": {
-      "founded": "100+ プロジェクト",
-      "headquarters": "50+ クライアント",
-      "members": "5+ 年の経験",
-      "projects": "24時間サポート"
-    },
-    "mission": {
-      "title": "革新",
-      "description": "私たちは常に最新技術の適用において先駆者となり、画期的なソリューションを創造します。"
-    },
-    "vision": {
-      "title": "高品質",
-      "description": "すべての顧客要件を満たす最高品質の製品・サービスの提供をお約束します。"
-    },
-    "values": {
-      "partnership": "持続可能なパートナーシップ",
-      "excellence": "卓越性"
-    }
-  },
-  "contact": {
-    "title": "お問い合わせ",
-    "subtitle": "プロジェクトを始める準備はできていますか？無料コンサルテーションのためにお問い合わせください",
-    "info": {
-      "title": "メッセージを送信",
-      "description": "連絡先情報",
-      "phone": "+848 68 68 99 12",
-      "address": "ハノイ、カウザイ、ベトナム",
-      "website": "ウェブサイト",
-      "hours": "営業時間",
-      "schedule": {
-        "weekdays": "月曜日 - 金曜日:",
-        "saturday": "土曜日:",
-        "sunday": "日曜日:",
-        "weekdaysTime": "8:00 - 18:00",
-        "saturdayTime": "9:00 - 17:00",
-        "sundayTime": "休業"
-      }
-    },
-    "form": {
-      "title": "メッセージを送信",
-      "name": "お名前",
-      "email": "メールアドレス",
-      "company": "会社・組織",
-      "service": "関心のあるサービス",
-      "message": "メッセージ",
-      "required": "*",
-      "submit": "メッセージを送信"
-    }
-  },
-  "learning": {
-    "title": "ラーニングセンター",
-    "subtitle": "包括的なチュートリアルとコースでスキルを拡張しましょう",
-    "tabs": {
-      "tutorials": "チュートリアル",
-      "courses": "コース"
-    },
-    "categories": {
-      "all": "すべてのカテゴリ",
-      "aiAutomation": "AI・自動化",
-      "videoProduction": "ビデオ制作",
-      "animationVfx": "アニメーション・VFX",
-      "webDevelopment": "ウェブ開発",
-      "marketing": "マーケティング"
-    },
-    "difficulty": {
-      "beginner": "初級",
-      "intermediate": "中級",
-      "advanced": "上級"
-    },
-    "actions": {
-      "watchNow": "今すぐ視聴",
-      "enrollNow": "今すぐ登録"
-    }
-  },
-  "footer": {
-    "description": "© 2024 VizioCraft Design. AI・メディアテクノロジーでデジタルイノベーションを推進。",
-    "rights": "すべての権利を保有しています。",
-    "email": "contact@viziocraft.design"
-  },
-  "common": {
-    "loading": "読み込み中...",
-    "error": "エラーが発生しました",
-    "backToHome": "ホームに戻る",
-    "readMore": "続きを読む",
+
+  "gallery": {
+    "title": "クリエイティブギャラリー",
+    "subtitle": "AIを活用した動画から美しいビジュアルデザインまで、私たちのクリエイティブワークのコレクションをご覧ください",
     "viewAll": "すべて表示",
-    "getStarted": "始める",
-    "contactUs": "お問い合わせ"
-  },
-  "assistant": {
-    "name": "ホアン・アン",
-    "role": "バーチャルアシスタント",
-    "welcome": "こんにちは！私はVizioCraft Designのバーチャルアシスタント、ホアン・アンです。サービスについて学び、質問にお答えできます。どのようにお手伝いできますか？",
-    "placeholder": "メッセージを入力してください...",
-    "suggestedQuestions": "推奨質問:"
+    "exploreGallery": "フルギャラリーを探索",
+    "backToHome": "ホームに戻る",
+    
+    "filters": {
+      "all": "すべて",
+      "images": "画像",
+      "videos": "動画",
+      "featured": "注目",
+      "categories": "カテゴリ", 
+      "contentType": "コンテンツタイプ",
+      "sortBy": "並び替え",
+      "sortOrder": "並び順",
+      "newest": "新しい順",
+      "oldest": "古い順",
+      "mostViewed": "最も視聴された",
+      "mostLiked": "最も人気",
+      "dateRange": "期間",
+      "clearAll": "すべてクリア",
+      "applyFilters": "フィルターを適用",
+      "advancedFilters": "詳細フィルター"
+    },
+
+    "viewModes": {
+      "masonry": "メイソンリー",
+      "grid": "グリッド"
+    },
+
+    "actions": {
+      "view": "表示",
+      "like": "いいね", 
+      "share": "共有",
+      "download": "ダウンロード",
+      "viewDetails": "詳細を表示",
+      "fullscreen": "フルスクリーン",
+      "play": "再生",
+      "pause": "一時停止",
+      "zoom": "ズーム"
+    },
+
+    "details": {
+      "projectDetails": "プロジェクト詳細",
+      "technicalInfo": "技術情報",
+      "project": "プロジェクト", 
+      "client": "クライアント",
+      "date": "日付",
+      "category": "カテゴリ",
+      "description": "説明",
+      "tags": "タグ",
+      "duration": "再生時間",
+      "resolution": "解像度",
+      "fileSize": "ファイルサイズ",
+      "views": "視聴回数",
+      "likes": "いいね数",
+      "aspectRatio": "アスペクト比", 
+      "format": "フォーマット"
+    },
+
+    "stats": {
+      "totalItems": "総アイテム数",
+      "images": "画像",
+      "videos": "動画",
+      "featured": "注目",
+      "totalViews": "総視聴回数",
+      "totalLikes": "総いいね数",
+      "itemsFound": "アイテムが見つかりました",
+      "showing": "表示中", 
+      "of": "の"
+    },
+
+    "search": {
+      "placeholder": "タイトル、説明、タグ、プロジェクト、またはクライアントで検索...",
+      "searchResults": "検索結果",
+      "noResults": "結果が見つかりません",
+      "noResultsDesc": "検索キーワードやフィルターを調整して、お探しのコンテンツを見つけてください。",
+      "clearSearch": "検索をクリア",
+      "searchSuggestions": "検索候補"
+    },
+
+    "pagination": {
+      "previous": "前へ", 
+      "next": "次へ",
+      "first": "最初",
+      "last": "最後",
+      "page": "ページ",
+      "of": "の",
+      "showing": "表示中",
+      "to": "から",
+      "results": "結果",
+      "itemsPerPage": "ページあたりのアイテム数"
+    },
+
+    "bulk": {
+      "selectAll": "すべて選択",
+      "deselectAll": "すべて選択解除", 
+      "selected": "選択中",
+      "downloadSelected": "選択項目をダウンロード",
+      "shareSelected": "選択項目を共有",
+      "addToCollection": "コレクションに追加"
+    },
+
+    "modal": {
+      "close": "閉じる",
+      "previous": "前へ",
+      "next": "次へ",
+      "slideshow": "スライドショー",
+      "info": "情報",
+      "share": "共有", 
+      "download": "ダウンロード",
+      "keyboardShortcuts": "キーボードショートカット",
+      "escToClose": "Escで閉じる",
+      "arrowKeys": "矢印キーでナビゲート"
+    },
+
+    "categories": {
+      "aiSolutions": "AIソリューション",
+      "videoProduction": "動画制作",
+      "webDevelopment": "ウェブ開発",
+      "digitalMarketing": "デジタルマーケティング",
+      "motionGraphics": "モーショングラフィックス", 
+      "3dVisualization": "3Dビジュアライゼーション",
+      "interactiveMedia": "インタラクティブメディア",
+      "photography": "写真撮影",
+      "printDesign": "印刷デザイン",
+      "brandDesign": "ブランドデザイン"
+    },
+
+    "cta": {
+      "title": "何か素晴らしいものを作る準備はできていますか？",
+      "subtitle": "あなたのビジョンを現実にしましょう",
+      "description": "私たちのクリエイティブな専門知識と最先端技術で、あなたの次のプロジェクトを芸術作品にします。", 
+      "startProject": "プロジェクトを開始",
+      "exploreMore": "もっと探索",
+      "getQuote": "見積もりを取得",
+      "contactUs": "お問い合わせ"
+    },
+
+    "loading": {
+      "loadingGallery": "ギャラリーを読み込み中...",
+      "loadingMore": "さらに読み込み中...",
+      "processing": "処理中...",
+      "uploading": "アップロード中..."
+    },
+
+    "errors": {
+      "loadFailed": "コンテンツの読み込みに失敗しました", 
+      "networkError": "ネットワークエラー",
+      "notFound": "コンテンツが見つかりません",
+      "accessDenied": "アクセスが拒否されました",
+      "tryAgain": "再試行",
+      "contactSupport": "サポートに連絡"
+    }
   }
 }
