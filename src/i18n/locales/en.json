@@ -1,180 +1,171 @@
 {
+  "// ===== FILE: src/i18n/locales/en.json =====": "",
+  "// Add gallery section to existing en.json": "",
+
   "nav": {
     "home": "Home",
     "services": "Services",
-    "learning": "Learning",
+    "gallery": "Gallery",
+    "learning": "Learning", 
     "about": "About Us",
     "contact": "Contact",
     "contactNow": "Contact Now"
   },
-  "hero": {
-    "title": "VizioCraft Design",
-    "tagline": "AI & Media Technology Solutions",
-    "industry": "Artificial Intelligence • Media Production • Automation",
-    "description": "We provide advanced AI solutions, professional media production and intelligent automation. A trusted technology partner helping businesses digitally transform and optimize business processes.",
-    "stats": {
-      "projectsCompleted": "Projects Completed",
-      "clientsServed": "Satisfied Clients",
-      "yearsExperience": "Years Experience",
-      "teamMembers": "24/7 Support"
-    },
-    "cta": {
-      "exploreServices": "Explore Services",
-      "aboutUs": "About Us"
-    }
-  },
-  "services": {
-    "title": "Our Services",
-    "subtitle": "We provide comprehensive solutions from AI, video production to web development and marketing",
-    "aiSolutions": {
-      "title": "AI Solutions",
-      "description": "Intelligent Agents, Business Process Automation, No-code/Low-code Solutions",
-      "features": [
-        "Intelligent Agents",
-        "Process Automation",
-        "AI Analytics",
-        "No-code Solutions"
-      ]
-    },
-    "videoProduction": {
-      "title": "Video Production",
-      "description": "AI-enhanced Video Creation, 3D Animation, Motion Graphics, Post-production Services",
-      "features": [
-        "AI Video Creation",
-        "3D Animation",
-        "Motion Graphics",
-        "Post-production"
-      ]
-    },
-    "webDevelopment": {
-      "title": "Web Development",
-      "description": "Custom Web Applications, E-commerce Solutions, Progressive Web Apps",
-      "features": [
-        "Custom Web Apps",
-        "E-commerce",
-        "Progressive Web Apps",
-        "API Development"
-      ]
-    },
-    "digitalMarketing": {
-      "title": "Digital Marketing",
-      "description": "Brand Strategy, Content Creation, Social Media Management, SEO Optimization",
-      "features": [
-        "Brand Strategy",
-        "Content Creation",
-        "Social Media",
-        "SEO Optimization"
-      ]
-    },
-    "learnMore": "Learn More",
-    "cta": {
-      "title": "Need consultation on suitable services for your project?",
-      "description": "Contact us for free consultation",
-      "button": "Get Free Consultation"
-    }
-  },
-  "about": {
-    "title": "About VizioCraft Design",
-    "subtitle": "We are a team of technology-passionate experts, committed to bringing the most creative AI and media solutions",
-    "companyName": "VizioCraft Design",
-    "companyDescription": "VizioCraft Design was founded with the vision of becoming a trusted technology partner for businesses wanting to digitally transform and apply AI to business operations.",
-    "story": {
-      "title": "Our Story",
-      "description": "VizioCraft Design was founded with the vision of becoming a trusted technology partner for businesses wanting to digitally transform and apply AI to business operations. With a team of experienced experts in AI, media production and web development, we have helped hundreds of businesses optimize processes and increase operational efficiency."
-    },
-    "stats": {
-      "founded": "100+ Projects",
-      "headquarters": "50+ Clients",
-      "members": "5+ Years",
-      "projects": "24/7 Support"
-    },
-    "mission": {
-      "title": "Innovation",
-      "description": "We always pioneer in applying the latest technology to create breakthrough solutions."
-    },
-    "vision": {
-      "title": "High Quality",
-      "description": "Committed to bringing the highest quality products and services, meeting all customer requirements."
-    },
-    "values": {
-      "partnership": "Sustainable Partnership",
-      "excellence": "Excellence"
-    }
-  },
-  "contact": {
-    "title": "Contact Us",
-    "subtitle": "Ready to start your project? Contact us for free consultation",
-    "info": {
-      "title": "Send us a message",
-      "description": "Contact Information",
-      "phone": "+848 68 68 99 12",
-      "address": "Hanoi, Cau Giay, Vietnam",
-      "website": "Website",
-      "hours": "Working Hours",
-      "schedule": {
-        "weekdays": "Monday - Friday:",
-        "saturday": "Saturday:",
-        "sunday": "Sunday:",
-        "weekdaysTime": "8:00 AM - 6:00 PM",
-        "saturdayTime": "9:00 AM - 5:00 PM",
-        "sundayTime": "Closed"
-      }
-    },
-    "form": {
-      "title": "Send us a message",
-      "name": "Full Name",
-      "email": "Email",
-      "company": "Company / Organization",
-      "service": "Service of Interest",
-      "message": "Message",
-      "required": "*",
-      "submit": "Send Message"
-    }
-  },
-  "learning": {
-    "title": "Learning Center",
-    "subtitle": "Expand your skills with comprehensive tutorials and courses",
-    "tabs": {
-      "tutorials": "Tutorials",
-      "courses": "Courses"
-    },
-    "categories": {
-      "all": "All Categories",
-      "aiAutomation": "AI & Automation",
-      "videoProduction": "Video Production",
-      "animationVfx": "Animation & VFX",
-      "webDevelopment": "Web Development",
-      "marketing": "Marketing"
-    },
-    "difficulty": {
-      "beginner": "Beginner",
-      "intermediate": "Intermediate",
-      "advanced": "Advanced"
-    },
-    "actions": {
-      "watchNow": "Watch Now",
-      "enrollNow": "Enroll Now"
-    }
-  },
-  "footer": {
-    "description": "© 2024 VizioCraft Design. Empowering Digital Innovation with AI & Media Technology.",
-    "rights": "All rights reserved.",
-    "email": "contact@viziocraft.design"
-  },
-  "common": {
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "backToHome": "Back to Home",
-    "readMore": "Read More",
+
+  "gallery": {
+    "title": "Creative Gallery",
+    "subtitle": "Explore our collection of creative work, from AI-powered videos to stunning visual designs",
     "viewAll": "View All",
-    "getStarted": "Get Started",
-    "contactUs": "Contact Us"
-  },
-  "assistant": {
-    "name": "Hoang Anh",
-    "role": "Virtual Assistant",
-    "welcome": "Hello! I'm Hoang Anh, VizioCraft Design's virtual assistant. I can help you learn about our services and answer questions. How can I help you?",
-    "placeholder": "Type your message...",
-    "suggestedQuestions": "Suggested questions:"
+    "exploreGallery": "Explore Full Gallery", 
+    "backToHome": "Back to Home",
+    
+    "filters": {
+      "all": "All",
+      "images": "Images",
+      "videos": "Videos", 
+      "featured": "Featured",
+      "categories": "Categories",
+      "contentType": "Content Type",
+      "sortBy": "Sort By",
+      "sortOrder": "Sort Order",
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "mostViewed": "Most Viewed", 
+      "mostLiked": "Most Liked",
+      "dateRange": "Date Range",
+      "clearAll": "Clear All",
+      "applyFilters": "Apply Filters",
+      "advancedFilters": "Advanced Filters"
+    },
+
+    "viewModes": {
+      "masonry": "Masonry",
+      "grid": "Grid"
+    },
+
+    "actions": {
+      "view": "View",
+      "like": "Like",
+      "share": "Share", 
+      "download": "Download",
+      "viewDetails": "View Details",
+      "fullscreen": "Fullscreen",
+      "play": "Play",
+      "pause": "Pause",
+      "zoom": "Zoom"
+    },
+
+    "details": {
+      "projectDetails": "Project Details",
+      "technicalInfo": "Technical Info", 
+      "project": "Project",
+      "client": "Client",
+      "date": "Date",
+      "category": "Category",
+      "description": "Description",
+      "tags": "Tags",
+      "duration": "Duration",
+      "resolution": "Resolution",
+      "fileSize": "File Size",
+      "views": "Views", 
+      "likes": "Likes",
+      "aspectRatio": "Aspect Ratio",
+      "format": "Format"
+    },
+
+    "stats": {
+      "totalItems": "total items",
+      "images": "Images",
+      "videos": "Videos",
+      "featured": "Featured", 
+      "totalViews": "Total Views",
+      "totalLikes": "Total Likes",
+      "itemsFound": "items found",
+      "showing": "Showing",
+      "of": "of"
+    },
+
+    "search": {
+      "placeholder": "Search by title, description, tags, project, or client...",
+      "searchResults": "Search results for",
+      "noResults": "No results found", 
+      "noResultsDesc": "Try adjusting your search terms or filters to find what you're looking for.",
+      "clearSearch": "Clear search",
+      "searchSuggestions": "Search suggestions"
+    },
+
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "first": "First",
+      "last": "Last", 
+      "page": "Page",
+      "of": "of",
+      "showing": "Showing",
+      "to": "to",
+      "results": "results",
+      "itemsPerPage": "items per page"
+    },
+
+    "bulk": {
+      "selectAll": "Select all",
+      "deselectAll": "Deselect all",
+      "selected": "selected", 
+      "downloadSelected": "Download selected",
+      "shareSelected": "Share selected",
+      "addToCollection": "Add to collection"
+    },
+
+    "modal": {
+      "close": "Close",
+      "previous": "Previous",
+      "next": "Next",
+      "slideshow": "Slideshow",
+      "info": "Info", 
+      "share": "Share",
+      "download": "Download",
+      "keyboardShortcuts": "Keyboard shortcuts",
+      "escToClose": "Esc to close",
+      "arrowKeys": "Arrow keys to navigate"
+    },
+
+    "categories": {
+      "aiSolutions": "AI Solutions",
+      "videoProduction": "Video Production",
+      "webDevelopment": "Web Development", 
+      "digitalMarketing": "Digital Marketing",
+      "motionGraphics": "Motion Graphics",
+      "3dVisualization": "3D Visualization",
+      "interactiveMedia": "Interactive Media",
+      "photography": "Photography",
+      "printDesign": "Print Design",
+      "brandDesign": "Brand Design"
+    },
+
+    "cta": {
+      "title": "Ready to Create Something Amazing?",
+      "subtitle": "Let's bring your vision to life", 
+      "description": "With our creative expertise and cutting-edge technology, your next project will become a work of art.",
+      "startProject": "Start Your Project",
+      "exploreMore": "Explore More",
+      "getQuote": "Get Quote",
+      "contactUs": "Contact Us"
+    },
+
+    "loading": {
+      "loadingGallery": "Loading gallery...",
+      "loadingMore": "Loading more...", 
+      "processing": "Processing...",
+      "uploading": "Uploading..."
+    },
+
+    "errors": {
+      "loadFailed": "Failed to load content",
+      "networkError": "Network error",
+      "notFound": "Content not found",
+      "accessDenied": "Access denied",
+      "tryAgain": "Try again", 
+      "contactSupport": "Contact support"
+    }
   }
 }
