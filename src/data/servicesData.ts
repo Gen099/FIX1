@@ -1,185 +1,276 @@
-export const servicesData = [
+// File: src/data/servicesData.ts
+// Cập nhật để đồng bộ với ServiceDetailPage
+
+export interface Project {
+  id: string;
+  name: string;
+  partner: string;
+  image: string;
+  description: string;
+}
+
+export interface Service {
+  id: string;
+  name: string;
+  description: string;
+  projects: Project[];
+  // Thêm các fields mới cho Services Section
+  features: string[];
+  technologies: string[];
+  priceRange: string;
+  timeline: string;
+  caseStudy: {
+    client: string;
+    challenge: string;
+    solution: string;
+    results: string[];
+    testimonial: string;
+    rating: number;
+  };
+  beforeAfter?: {
+    before: string;
+    after: string;
+    improvement: string;
+  };
+}
+
+export const servicesData: Service[] = [
   {
-    id: 'ai-solutions',
+    id: 'ai-solutions', // ID này sẽ được dùng trong URL: /services/ai-solutions
     name: 'AI Solutions',
     description: 'Intelligent Agents, Business Process Automation, No-code/Low-code Solutions',
+    features: [
+      'Custom AI Chatbots & Virtual Assistants',
+      'Intelligent Document Processing',
+      'Predictive Analytics & Machine Learning',
+      'Natural Language Processing',
+      'Computer Vision & Image Recognition',
+      'Automated Workflow Optimization'
+    ],
+    technologies: ['Python', 'TensorFlow', 'OpenAI', 'LangChain', 'FastAPI', 'Docker'],
+    priceRange: '$5K - $50K',
+    timeline: '2-6 months',
+    caseStudy: {
+      client: 'TechFlow Corporation',
+      challenge: 'Manual customer support was consuming 60% of staff time, leading to delayed responses and customer dissatisfaction.',
+      solution: 'Implemented AI-powered chatbot with natural language understanding, integrated with existing CRM and knowledge base.',
+      results: [
+        '80% reduction in response time',
+        '65% decrease in support tickets',
+        '45% improvement in customer satisfaction',
+        '$200K annual cost savings'
+      ],
+      testimonial: 'VizioCraft transformed our customer service. The AI assistant handles complex queries better than we expected!',
+      rating: 5
+    },
+    beforeAfter: {
+      before: 'Average response time: 4 hours',
+      after: 'Average response time: 30 seconds',
+      improvement: '88% faster response time'
+    },
     projects: [
       {
-        id: 'ai-project-1',
-        name: 'Hệ thống AI Chatbot thông minh cho Ngân hàng ABC',
-        partner: 'Ngân hàng ABC',
-        image: '/images/project_placeholder.png',
-        description: 'Phát triển hệ thống chatbot AI có khả năng xử lý 90% câu hỏi khách hàng tự động, tích hợp với hệ thống core banking để cung cấp thông tin tài khoản và giao dịch real-time.'
+        id: 'ai-chatbot-ecommerce',
+        name: 'E-commerce AI Assistant',
+        partner: 'ShopSmart Vietnam',
+        image: '/images/projects/ai-chatbot-ecommerce.jpg',
+        description: 'Intelligent shopping assistant that helps customers find products, answers questions, and provides personalized recommendations.'
       },
       {
-        id: 'ai-project-2',
-        name: 'Nền tảng tự động hóa quy trình HR cho Tập đoàn XYZ',
-        partner: 'Tập đoàn XYZ',
-        image: '/images/project_placeholder.png',
-        description: 'Xây dựng hệ thống AI tự động hóa quy trình tuyển dụng, đánh giá CV, lập lịch phỏng vấn và quản lý nhân sự. Giảm 70% thời gian xử lý hồ sơ ứng viên.'
+        id: 'ai-document-processing',
+        name: 'Document Processing System',
+        partner: 'Legal Partners Inc',
+        image: '/images/projects/ai-document.jpg',
+        description: 'Automated legal document analysis and classification system using advanced NLP and machine learning.'
       },
       {
-        id: 'ai-project-3',
-        name: 'Hệ thống phân tích dữ liệu bán hàng cho Chuỗi bán lẻ DEF',
-        partner: 'Chuỗi bán lẻ DEF',
-        image: '/images/project_placeholder.png',
-        description: 'Triển khai AI analytics để dự đoán xu hướng bán hàng, tối ưu hóa kho hàng và cá nhân hóa trải nghiệm khách hàng. Tăng 25% doanh thu và giảm 30% tồn kho.'
-      },
-      {
-        id: 'ai-project-4',
-        name: 'Ứng dụng AI hỗ trợ chẩn đoán y tế cho Bệnh viện GHI',
-        partner: 'Bệnh viện GHI',
-        image: '/images/project_placeholder.png',
-        description: 'Phát triển hệ thống AI hỗ trợ bác sĩ trong việc phân tích hình ảnh X-quang và CT scan, nâng cao độ chính xác chẩn đoán lên 95%.'
-      },
-      {
-        id: 'ai-project-5',
-        name: 'Nền tảng AI quản lý tài chính cá nhân cho FinTech JKL',
-        partner: 'FinTech JKL',
-        image: '/images/project_placeholder.png',
-        description: 'Xây dựng ứng dụng AI cá nhân hóa lời khuyên tài chính, theo dõi chi tiêu và đầu tư thông minh. Phục vụ hơn 100,000 người dùng với độ hài lòng 4.8/5.'
+        id: 'ai-predictive-maintenance',
+        name: 'Predictive Maintenance Platform',
+        partner: 'Manufacturing Co',
+        image: '/images/projects/ai-maintenance.jpg',
+        description: 'IoT-powered predictive maintenance system that reduces equipment downtime by 40% using machine learning algorithms.'
       }
     ]
   },
   {
-    id: 'video-production',
+    id: 'video-production', // URL: /services/video-production
     name: 'Video Production',
     description: 'AI-enhanced Video Creation, 3D Animation, Motion Graphics, Post-production Services',
+    features: [
+      'AI-Enhanced Video Editing',
+      'Professional 3D Animation',
+      'Motion Graphics & VFX',
+      'Corporate Video Production',
+      'Social Media Content Creation',
+      'Live Streaming Solutions'
+    ],
+    technologies: ['After Effects', 'Blender', 'DaVinci Resolve', 'Cinema 4D', 'Premiere Pro', 'AI Tools'],
+    priceRange: '$2K - $25K',
+    timeline: '1-4 months',
+    caseStudy: {
+      client: 'Global Marketing Agency',
+      challenge: 'Needed to produce 50+ marketing videos monthly while maintaining high quality and meeting tight deadlines.',
+      solution: 'Developed AI-assisted video production pipeline with automated editing, template-based creation, and streamlined workflow.',
+      results: [
+        '300% increase in video output',
+        '50% reduction in production time',
+        '40% cost savings per video',
+        '95% client approval rate'
+      ],
+      testimonial: 'The AI-enhanced workflow revolutionized our video production. We now deliver more content faster than ever!',
+      rating: 5
+    },
+    beforeAfter: {
+      before: '15 videos per month',
+      after: '50+ videos per month',
+      improvement: '233% increase in output'
+    },
     projects: [
       {
-        id: 'video-project-1',
-        name: 'Video quảng cáo TVC cho thương hiệu thời trang MNO',
-        partner: 'Thương hiệu MNO',
-        image: '/images/project_placeholder.png',
-        description: 'Sản xuất video quảng cáo TVC 60 giây với công nghệ AI-enhanced, 3D animation và motion graphics. Video đạt 5 triệu lượt xem trong tuần đầu phát sóng.'
+        id: 'corporate-brand-video',
+        name: 'Corporate Brand Video Series',
+        partner: 'Tech Innovators Ltd',
+        image: '/images/projects/corporate-video.jpg',
+        description: 'Professional brand video series showcasing company culture, values, and innovative solutions.'
       },
       {
-        id: 'video-project-2',
-        name: 'Series video đào tạo online cho Trường Đại học PQR',
-        partner: 'Trường Đại học PQR',
-        image: '/images/project_placeholder.png',
-        description: 'Sản xuất 50 video bài giảng chất lượng cao với kỹ xảo 3D, animation minh họa và post-production chuyên nghiệp. Nâng cao chất lượng giảng dạy trực tuyến.'
+        id: 'product-demo-3d',
+        name: '3D Product Demonstration',
+        partner: 'Smart Device Co',
+        image: '/images/projects/3d-product.jpg',
+        description: 'Stunning 3D animated product demonstrations for smart home devices with realistic rendering and physics.'
       },
       {
-        id: 'video-project-3',
-        name: 'Video giới thiệu sản phẩm công nghệ cho Startup STU',
-        partner: 'Startup STU',
-        image: '/images/project_placeholder.png',
-        description: 'Tạo video demo sản phẩm với kỹ thuật motion graphics và visual effects ấn tượng. Video giúp startup gọi vốn thành công 2 triệu USD.'
-      },
-      {
-        id: 'video-project-4',
-        name: 'Phim tài liệu doanh nghiệp cho Tập đoàn VWX',
-        partner: 'Tập đoàn VWX',
-        image: '/images/project_placeholder.png',
-        description: 'Sản xuất phim tài liệu 30 phút về lịch sử và tầm nhìn doanh nghiệp với chất lượng điện ảnh, phục vụ sự kiện kỷ niệm 25 năm thành lập.'
-      },
-      {
-        id: 'video-project-5',
-        name: 'Video marketing viral cho Ứng dụng YZA',
-        partner: 'Ứng dụng YZA',
-        image: '/images/project_placeholder.png',
-        description: 'Tạo series video marketing ngắn với AI-generated content và viral marketing strategy. Đạt 10 triệu lượt xem và tăng 300% lượt tải ứng dụng.'
-      },
-      {
-        id: 'video-project-6',
-        name: 'Video livestream sự kiện cho Hội nghị BCD',
-        partner: 'Hội nghị BCD',
-        image: '/images/project_placeholder.png',
-        description: 'Sản xuất và livestream sự kiện quốc tế với 5 camera, real-time graphics và post-production. Phục vụ 50,000 người xem trực tuyến đồng thời.'
+        id: 'social-media-campaign',
+        name: 'Social Media Video Campaign',
+        partner: 'Fashion Forward',
+        image: '/images/projects/social-campaign.jpg',
+        description: 'Dynamic social media video campaign with motion graphics and engaging animations for fashion brand.'
       }
     ]
   },
   {
-    id: 'web-development',
+    id: 'web-development', // URL: /services/web-development
     name: 'Web Development',
     description: 'Custom Web Applications, E-commerce Solutions, Progressive Web Apps',
+    features: [
+      'Custom Web Applications',
+      'E-commerce Platforms',
+      'Progressive Web Apps (PWA)',
+      'API Development & Integration',
+      'Database Design & Optimization',
+      'Cloud Deployment & DevOps'
+    ],
+    technologies: ['React', 'Node.js', 'TypeScript', 'Next.js', 'PostgreSQL', 'AWS'],
+    priceRange: '$3K - $30K',
+    timeline: '1-5 months',
+    caseStudy: {
+      client: 'RetailMax E-commerce',
+      challenge: 'Legacy website had slow loading times, poor mobile experience, and low conversion rates.',
+      solution: 'Built modern React-based e-commerce platform with PWA capabilities, optimized performance, and integrated analytics.',
+      results: [
+        '75% faster page load times',
+        '120% increase in mobile conversions',
+        '45% improvement in SEO rankings',
+        '$500K additional revenue in first quarter'
+      ],
+      testimonial: 'Our new website not only looks amazing but performs incredibly well. Sales have doubled since launch!',
+      rating: 5
+    },
+    beforeAfter: {
+      before: 'Page load time: 8 seconds',
+      after: 'Page load time: 2 seconds',
+      improvement: '75% performance improvement'
+    },
     projects: [
       {
-        id: 'web-project-1',
-        name: 'Nền tảng thương mại điện tử cho Chuỗi cửa hàng EFG',
-        partner: 'Chuỗi cửa hàng EFG',
-        image: '/images/project_placeholder.png',
-        description: 'Phát triển website thương mại điện tử đa kênh với tích hợp thanh toán, quản lý kho và CRM. Xử lý 10,000 đơn hàng/ngày với uptime 99.9%.'
+        id: 'ecommerce-platform',
+        name: 'Modern E-commerce Platform',
+        partner: 'Online Retail Store',
+        image: '/images/projects/ecommerce.jpg',
+        description: 'Full-featured e-commerce platform with payment integration, inventory management, and customer analytics.'
       },
       {
-        id: 'web-project-2',
-        name: 'Ứng dụng web quản lý bệnh viện cho HIJ Medical',
-        partner: 'HIJ Medical',
-        image: '/images/project_placeholder.png',
-        description: 'Xây dựng hệ thống quản lý bệnh viện toàn diện: đặt lịch khám, quản lý bệnh án điện tử, thanh toán và báo cáo. Phục vụ 500 bác sĩ và 10,000 bệnh nhân.'
+        id: 'saas-dashboard',
+        name: 'SaaS Analytics Dashboard',
+        partner: 'Data Insights Pro',
+        image: '/images/projects/saas-dashboard.jpg',
+        description: 'Comprehensive analytics dashboard for SaaS platforms with real-time data visualization and reporting.'
       },
       {
-        id: 'web-project-3',
-        name: 'Nền tảng học trực tuyến cho Trung tâm KLM',
-        partner: 'Trung tâm KLM',
-        image: '/images/project_placeholder.png',
-        description: 'Phát triển LMS (Learning Management System) với video streaming, quiz tương tác và chứng chỉ số. Hỗ trợ 50,000 học viên học tập đồng thời.'
-      },
-      {
-        id: 'web-project-4',
-        name: 'Portal nội bộ cho Công ty NOP',
-        partner: 'Công ty NOP',
-        image: '/images/project_placeholder.png',
-        description: 'Xây dựng hệ thống portal nội bộ tích hợp HR, tài chính, dự án và tài liệu. Nâng cao hiệu quả làm việc của 1,000 nhân viên.'
-      },
-      {
-        id: 'web-project-5',
-        name: 'Ứng dụng web IoT cho Smart City QRS',
-        partner: 'Smart City QRS',
-        image: '/images/project_placeholder.png',
-        description: 'Phát triển dashboard quản lý thành phố thông minh: giám sát giao thông, môi trường, an ninh và tiện ích công cộng real-time.'
+        id: 'pwa-mobile-app',
+        name: 'Progressive Web Application',
+        partner: 'Mobile First Company',
+        image: '/images/projects/pwa.jpg',
+        description: 'Cross-platform PWA with native app features, offline functionality, and push notifications.'
       }
     ]
   },
   {
-    id: 'digital-marketing',
+    id: 'digital-marketing', // URL: /services/digital-marketing
     name: 'Digital Marketing',
     description: 'Brand Strategy, Content Creation, Social Media Management, SEO Optimization',
+    features: [
+      'AI-Driven Marketing Automation',
+      'Content Strategy & Creation',
+      'Social Media Management',
+      'SEO & Performance Marketing',
+      'Brand Identity & Design',
+      'Analytics & Conversion Optimization'
+    ],
+    technologies: ['Google Analytics', 'Facebook Ads', 'HubSpot', 'Mailchimp', 'Canva Pro', 'SEMrush'],
+    priceRange: '$1K - $15K',
+    timeline: '2-6 months',
+    caseStudy: {
+      client: 'StartupGrow SaaS',
+      challenge: 'New SaaS product struggling with low brand awareness and customer acquisition costs exceeding $500 per user.',
+      solution: 'Implemented comprehensive digital marketing strategy with AI-powered content creation, targeted ads, and conversion optimization.',
+      results: [
+        '85% reduction in customer acquisition cost',
+        '250% increase in organic traffic',
+        '180% improvement in conversion rate',
+        '$1M ARR achieved in 8 months'
+      ],
+      testimonial: 'VizioCraft helped us scale from zero to $1M ARR. Their marketing automation is game-changing!',
+      rating: 5
+    },
+    beforeAfter: {
+      before: 'CAC: $500 per customer',
+      after: 'CAC: $75 per customer',
+      improvement: '85% cost reduction'
+    },
     projects: [
       {
-        id: 'marketing-project-1',
-        name: 'Chiến dịch Digital Marketing cho Thương hiệu TUV',
-        partner: 'Thương hiệu TUV',
-        image: '/images/project_placeholder.png',
-        description: 'Triển khai chiến dịch marketing đa kênh: SEO, SEM, Social Media và Content Marketing. Tăng 400% traffic website và 250% doanh số bán hàng.'
+        id: 'brand-strategy-campaign',
+        name: 'Complete Brand Strategy',
+        partner: 'Startup Innovate',
+        image: '/images/projects/brand-strategy.jpg',
+        description: 'Comprehensive brand strategy including logo design, messaging, and market positioning for tech startup.'
       },
       {
-        id: 'marketing-project-2',
-        name: 'Xây dựng thương hiệu số cho Startup WXY',
-        partner: 'Startup WXY',
-        image: '/images/project_placeholder.png',
-        description: 'Phát triển brand identity, website, content strategy và social media presence từ con số 0. Đạt 100K followers trong 6 tháng.'
+        id: 'seo-optimization',
+        name: 'SEO & Content Marketing',
+        partner: 'Service Business Pro',
+        image: '/images/projects/seo.jpg',
+        description: 'Complete SEO overhaul and content marketing strategy resulting in 300% increase in organic traffic.'
       },
       {
-        id: 'marketing-project-3',
-        name: 'Chiến lược SEO cho E-commerce ZAB',
-        partner: 'E-commerce ZAB',
-        image: '/images/project_placeholder.png',
-        description: 'Tối ưu hóa SEO cho 10,000 sản phẩm, xây dựng content marketing và link building. Tăng 300% organic traffic và top 3 từ khóa chính.'
-      },
-      {
-        id: 'marketing-project-4',
-        name: 'Quản lý Social Media cho Nhà hàng CDE',
-        partner: 'Nhà hàng CDE',
-        image: '/images/project_placeholder.png',
-        description: 'Quản lý fanpage, tạo content viral và chạy ads Facebook/Instagram. Tăng 500% engagement và 200% lượng khách đặt bàn.'
-      },
-      {
-        id: 'marketing-project-5',
-        name: 'Chiến dịch Influencer Marketing cho App FGH',
-        partner: 'App FGH',
-        image: '/images/project_placeholder.png',
-        description: 'Kết nối với 50 influencers, tạo content viral và tracking ROI. Đạt 5 triệu impression và 100,000 lượt tải app mới.'
-      },
-      {
-        id: 'marketing-project-6',
-        name: 'Email Marketing Automation cho B2B IJK',
-        partner: 'B2B IJK',
-        image: '/images/project_placeholder.png',
-        description: 'Xây dựng hệ thống email marketing tự động với lead nurturing và scoring. Tăng 150% conversion rate và 80% qualified leads.'
+        id: 'social-media-automation',
+        name: 'Social Media Automation',
+        partner: 'E-learning Platform',
+        image: '/images/projects/social-automation.jpg',
+        description: 'AI-powered social media automation system with content scheduling, engagement tracking, and analytics.'
       }
     ]
   }
 ];
 
+// Helper function để get service by ID
+export const getServiceById = (id: string): Service | undefined => {
+  return servicesData.find(service => service.id === id);
+};
+
+// Helper function để get all service IDs (useful for routing)
+export const getAllServiceIds = (): string[] => {
+  return servicesData.map(service => service.id);
+};
