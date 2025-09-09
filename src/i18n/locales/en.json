@@ -69,8 +69,8 @@
     "learnMore": "Learn More",
     "cta": {
       "title": "Need consultation on suitable services for your project?",
-      "description": "Free consultation contact",
-      "button": "Free consultation contact"
+      "description": "Contact us for free consultation",
+      "button": "Get Free Consultation"
     }
   },
   "about": {
@@ -83,10 +83,10 @@
       "description": "VizioCraft Design was founded with the vision of becoming a trusted technology partner for businesses wanting to digitally transform and apply AI to business operations. With a team of experienced experts in AI, media production and web development, we have helped hundreds of businesses optimize processes and increase operational efficiency."
     },
     "stats": {
-      "founded": "100+",
-      "headquarters": "50+",
-      "members": "5+",
-      "projects": "24/7"
+      "founded": "100+ Projects",
+      "headquarters": "50+ Clients",
+      "members": "5+ Years",
+      "projects": "24/7 Support"
     },
     "mission": {
       "title": "Innovation",
@@ -115,8 +115,8 @@
         "weekdays": "Monday - Friday:",
         "saturday": "Saturday:",
         "sunday": "Sunday:",
-        "weekdaysTime": "8:00 - 18:00",
-        "saturdayTime": "9:00 - 17:00",
+        "weekdaysTime": "8:00 AM - 6:00 PM",
+        "saturdayTime": "9:00 AM - 5:00 PM",
         "sundayTime": "Closed"
       }
     },
@@ -178,4 +178,3 @@
     "suggestedQuestions": "Suggested questions:"
   }
 }
-
