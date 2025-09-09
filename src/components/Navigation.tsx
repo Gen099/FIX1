@@ -1,187 +1,151 @@
+// File: src/components/Navigation.tsx
+// Updated để include Gallery navigation
+
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { NAVIGATION_ITEMS } from '../data/constants';
-import { useSmoothScroll } from '../hooks/useScrollAnimation';
-import { Menu, X } from 'lucide-react';
-import LanguageSwitcher from './LanguageSwitcher';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Menu, X, Globe, Camera } from 'lucide-react';
 
 const Navigation: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollToSection } = useSmoothScroll();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const { t } = useTranslation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
+  const languages = [
+    { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'ja', name: '日本語', flag: '🇯🇵' }
+  ];
+
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navigationItems = [
-    { id: 'home', label: t('nav.home'), path: '/' },
-    { id: 'services', label: t('nav.services'), path: '/#services' },
-    { id: 'learning', label: t('nav.learning'), path: '/learning' },
-    { id: 'about', label: t('nav.about'), path: '/#about' },
+  // Navigation items
+  const navItems = [
+    { key: 'home', label: t('nav.home'), href: '/' },
+    { key: 'services', label: t('nav.services'), href: '/#services' },
+    { key: 'gallery', label: 'Gallery', href: '/gallery' }, // New gallery item
+    { key: 'learning', label: t('nav.learning'), href: '/#learning' },
+    { key: 'about', label: t('nav.about'), href: '/#about' },
+    { key: 'contact', label: t('nav.contact'), href: '/#contact' }
   ];
 
-  const handleNavClick = (item: typeof navigationItems[0]) => {
-    if (item.path.startsWith('/#')) {
-      // If we're not on home page, navigate to home first
+  const handleNavClick = (href: string) => {
+    setIsMenuOpen(false);
+    
+    if (href.startsWith('/#')) {
+      // Handle anchor links
       if (location.pathname !== '/') {
         navigate('/');
         setTimeout(() => {
-          scrollToSection(item.id);
+          const element = document.querySelector(href.substring(1));
+          element?.scrollIntoView({ behavior: 'smooth' });
         }, 100);
       } else {
-        scrollToSection(item.id);
+        const element = document.querySelector(href.substring(1));
+        element?.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      navigate(item.path);
+      // Handle regular routes
+      navigate(href);
     }
-    setIsMobileMenuOpen(false);
+  };
+
+  const changeLanguage = (langCode: string) => {
+    i18n.changeLanguage(langCode);
   };
 
   return (
-    <nav 
-      className={`
-        fixed top-0 w-full z-50 transition-all duration-300
-        ${isScrolled 
-          ? 'bg-gray-900/95 backdrop-blur-md shadow-2xl border-b border-cyan-400/20' 
-          : 'bg-transparent'
-        }
-      `}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled ? 'bg-black/90 backdrop-blur-md border-b border-gray-800' : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Company Logo */}
-          <Link 
-            to="/"
-            className="flex items-center cursor-pointer flex-shrink-0"
-          >
-            <img 
-              src="/images/logo-transparent.png" 
-              alt="VizioCraft Design" 
-              className="h-8 w-8 sm:h-10 sm:w-10 mr-2 sm:mr-3 rounded-lg flex-shrink-0"
-            />
-            <span className="text-lg sm:text-xl font-bold text-white truncate">
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                VizioCraft Design
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <button 
+              onClick={() => navigate('/')}
+              className="flex items-center gap-3 group"
+            >
+              <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                <span className="text-white font-bold text-lg">VC</span>
+              </div>
+              <span className="text-white font-bold text-xl group-hover:text-cyan-400 transition-colors">
+                VizioCraft
               </span>
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navigationItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item)}
-                className="
-                  text-gray-300 hover:text-cyan-400 transition-all duration-300
-                  relative group py-2 px-3 font-medium
-                "
-              >
-                {item.label}
-                <span className="
-                  absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500
-                  group-hover:w-full transition-all duration-300
-                " />
-              </button>
-            ))}
+            </button>
           </div>
 
-          {/* Language Switcher & CTA - Desktop Only */}
+          {/* Desktop Navigation */}
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.key}
+                  onClick={() => handleNavClick(item.href)}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    (location.pathname === item.href || 
+                     (item.href.startsWith('/#') && location.pathname === '/' && location.hash === item.href.substring(1)))
+                      ? 'text-cyan-400 bg-cyan-400/10'
+                      : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                  }`}
+                >
+                  {item.key === 'gallery' && <Camera className="w-4 h-4 inline mr-2" />}
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Right side controls */}
           <div className="hidden md:flex items-center space-x-4">
-            <LanguageSwitcher />
-            <button
-              onClick={() => {
-                if (location.pathname !== '/') {
-                  navigate('/');
-                  setTimeout(() => {
-                    scrollToSection('contact');
-                  }, 100);
-                } else {
-                  scrollToSection('contact');
-                }
-              }}
-              className="
-                bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 sm:px-6 py-2 rounded-full
-                hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300
-                hover:scale-105 font-medium text-sm sm:text-base
-              "
+            {/* Language Selector */}
+            <div className="relative group">
+              <button className="flex items-center gap-2 px-3 py-2 text-gray-300 hover:text-white rounded-md transition-colors">
+                <Globe className="w-4 h-4" />
+                <span className="text-sm">
+                  {languages.find(lang => lang.code === i18n.language)?.flag || '🌐'}
+                </span>
+              </button>
+              
+              <div className="absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => changeLanguage(lang.code)}
+                    className={`w-full text-left px-4 py-2 text-sm transition-colors flex items-center gap-3 ${
+                      i18n.language === lang.code
+                        ? 'text-cyan-400 bg-cyan-400/10'
+                        : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                    }`}
+                  >
+                    <span>{lang.flag}</span>
+                    <span>{lang.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <button 
+              onClick={() => handleNavClick('/#contact')}
+              className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
             >
               {t('nav.contactNow')}
             </button>
           </div>
 
-          {/* Mobile Menu Button Only */}
-          <div className="flex items-center md:hidden">
+          {/* Mobile menu button */}
+          <div className="md:hidden">
             <button
-              className="text-white hover:text-cyan-400 transition-colors flex-shrink-0"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-gray-900/95 backdrop-blur-md border-t border-cyan-400/20">
-            <div className="px-4 pt-4 pb-4 space-y-3">
-              {/* Language Switcher in Mobile Menu */}
-              <div className="flex justify-center mb-4">
-                <LanguageSwitcher />
-              </div>
-              
-              {/* Navigation Items */}
-              {navigationItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item)}
-                  className="
-                    block w-full text-center px-4 py-3 text-gray-300
-                    hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg
-                    transition-all duration-300 font-medium
-                  "
-                >
-                  {item.label}
-                </button>
-              ))}
-              
-              {/* Contact CTA in Mobile Menu */}
-              <button
-                onClick={() => {
-                  if (location.pathname !== '/') {
-                    navigate('/');
-                    setTimeout(() => {
-                      scrollToSection('contact');
-                    }, 100);
-                  } else {
-                    scrollToSection('contact');
-                  }
-                  setIsMobileMenuOpen(false);
-                }}
-                className="
-                  block w-full text-center px-4 py-3 mt-4
-                  bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg
-                  hover:shadow-lg transition-all duration-300 font-medium
-                "
-              >
-                {t('nav.contactNow')}
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-    </nav>
-  );
-};
-
-export default Navigation;
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="inline-
