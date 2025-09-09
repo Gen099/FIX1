@@ -396,6 +396,7 @@ const ServicesSection: React.FC = () => {
               service={service}
               isActive={activeService === index}
               onClick={() => setActiveService(index)}
+              onLearnMore={handleLearnMore}
             />
           ))}
         </div>
