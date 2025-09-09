@@ -2,15 +2,17 @@
 import React from 'react';
 import HeroSection from '../components/sections/HeroSection';
 import ServicesSection from '../components/sections/ServicesSection';
+import GallerySection from '../components/sections/GallerySection';
 import AboutSection from '../components/sections/AboutSection';
-import ContactSection from '../components/sections/ContactSection';
 import LearningSection from '../components/sections/LearningSection';
+import ContactSection from '../components/sections/ContactSection';
 
 const HomePage: React.FC = () => {
   return (
     <>
       <HeroSection />
       <ServicesSection />
+      <GallerySection />
       <AboutSection />
       <LearningSection />
       <ContactSection />
